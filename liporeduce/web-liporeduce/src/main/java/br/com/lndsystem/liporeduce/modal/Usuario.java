@@ -2,6 +2,7 @@ package br.com.lndsystem.liporeduce.modal;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -18,11 +19,17 @@ public class Usuario implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 
+	@Column(length = 100)
 	private String nome;
+
+	@Column(length = 100)
 	private String email;
+
+	@Column(length = 150)
 	private String senha;
 
 	@Enumerated(EnumType.STRING)
+	@Column(name = "tipo_usuario", length = 20)
 	private TipoUsuario tipoUsuario;
 
 	public String getNome() {
