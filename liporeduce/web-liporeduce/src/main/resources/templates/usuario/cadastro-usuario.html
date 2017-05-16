@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout-padrao}">
+<body>
+	<section class="aw-layout-content  js-content" layout:fragment="conteudo">
+		<div class="page-header">
+			<div class="container-fluid">
+				<h1>
+					Cadastro de usuário
+				</h1>
+			</div>
+		</div>
+		
+		<div class="container-fluid">
+			<div class="alert  alert-danger  alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<i class="fa  fa-exclamation-circle"></i> Já existe um produto com o nome informado.
+			</div>
+		
+			<form method="post" class="form-vertical  js-form-loading" th:object="${usuario}">
+				<div class="row">
+					<div class="form-group  col-sm-6">
+						<label for="nome">Nome</label>
+						<input id="nome" type="text" class="form-control" th:field="*{nome}"/>
+					</div>
+					
+					<div class="form-group  col-sm-6">
+						<label for="email">Email</label>
+						<input id="email" type="text" class="form-control" th:field="*{email}"/>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group  col-sm-6">
+						<label for="senha">Senha</label>
+						<input id="senha" type="password" class="form-control" th:field="*{senha}"/>
+					</div>
+			
+					<div class="form-group  col-sm-6">
+						<label for="tipoUsuario">Tipo Usuário</label>
+						<select class="form-control" th:field="*{tipoUsuario}">
+							<option value="">Selecione...</option>
+							<option th:each="tipoUsuario : ${tiposUsuario}" th:value="${tipoUsuario}" th:text="${tipoUsuario.descricao}"></option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<button class="btn  btn-primary" type="submit">Salvar</button>				
+				</div>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

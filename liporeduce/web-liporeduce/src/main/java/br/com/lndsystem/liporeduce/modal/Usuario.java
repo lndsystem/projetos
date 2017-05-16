@@ -9,6 +9,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Usuario implements Serializable {
@@ -19,15 +23,20 @@ public class Usuario implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 
+	@NotBlank
 	@Column(length = 100)
 	private String nome;
 
+	@Email
+	@NotBlank
 	@Column(length = 100)
 	private String email;
 
+	@NotBlank
 	@Column(length = 150)
 	private String senha;
 
+	@NotNull
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_usuario", length = 20)
 	private TipoUsuario tipoUsuario;
