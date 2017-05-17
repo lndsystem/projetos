@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt" xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout/layout-padrao}">
+	layout:decorate="~{layout/layout-padrao}"
+	xmlns:lipo="http://liporeduce.lndsystem.com.br">
 <body>
 	<section class="aw-layout-content  js-content" layout:fragment="conteudo">
 		<div class="page-header">
@@ -16,44 +17,29 @@
 			
 		
 			<form method="post" class="form-vertical  js-form-loading" th:object="${usuario}" th:action="@{/usuario/novo}">
-				<!-- Messagens  OK -->
-				<div class="alert  alert-success  alert-dismissible" role="alert" th:if="${!#strings.isEmpty(mensagem)}">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<i class="fa  fa-exclamation-circle"></i> <span th:text="${mensagem}"></span>
-				</div>
-				
-				<!-- Menssagens Erro -->
-				<div class="alert  alert-danger  alert-dismissible" role="alert" th:if="${#fields.hasErrors('*')}">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<div th:each="err : ${#fields.errors('*')}">
-						<i class="fa  fa-exclamation-circle"></i> <span th:text="${err}"></span>
-					</div>
-				</div>
-				
-			
-			
+				<lipo:message/>
 			
 				<input type="hidden" th:field="*{codigo}" />
 				<div class="row">
-					<div class="form-group  col-sm-6">
-						<label for="nome">Nome</label>
+					<div class="form-group  col-sm-6" lipo:classforerror="nome">
+						<label for="nome" class="control-label">Nome</label>
 						<input id="nome" type="text" class="form-control" th:field="*{nome}"/>
 					</div>
 					
-					<div class="form-group  col-sm-6">
-						<label for="email">Email</label>
+					<div class="form-group  col-sm-6" lipo:classforerror="email">
+						<label for="email" class="control-label">E-mail</label>
 						<input id="email" type="text" class="form-control" th:field="*{email}"/>
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class="form-group  col-sm-6">
-						<label for="senha">Senha</label>
+					<div class="form-group  col-sm-6" lipo:classforerror="senha">
+						<label for="senha" class="control-label">Senha</label>
 						<input id="senha" type="password" class="form-control" th:field="*{senha}"/>
 					</div>
 			
-					<div class="form-group  col-sm-6">
-						<label for="tipoUsuario">Tipo Usuário</label>
+					<div class="form-group  col-sm-6" lipo:classforerror="tipoUsuario">
+						<label for="tipoUsuario" class="control-label">Tipo Usuário</label>
 						<select class="form-control" th:field="*{tipoUsuario}">
 							<option value="">Selecione...</option>
 							<option th:each="tipoUsuario : ${tiposUsuario}" th:value="${tipoUsuario}" th:text="${tipoUsuario.descricao}"></option>

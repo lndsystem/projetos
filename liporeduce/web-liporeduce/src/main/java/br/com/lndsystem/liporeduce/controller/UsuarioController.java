@@ -48,7 +48,7 @@ public class UsuarioController {
 		try {
 			usuarioService.salvar(usuario);
 		} catch (EmailJaCadastradoException e) {
-			result.rejectValue("email", null, "E-mail ");
+			result.rejectValue("email", null, e.getMessage());
 			return novo(usuario);
 		}
 

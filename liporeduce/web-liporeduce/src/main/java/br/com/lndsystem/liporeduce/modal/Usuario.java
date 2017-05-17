@@ -23,20 +23,20 @@ public class Usuario implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 
-	@NotBlank
+	@NotBlank(message = "Nome é obrigatório")
 	@Column(length = 100)
 	private String nome;
 
 	@Email
-	@NotBlank
+	@NotBlank(message = "E-mail é obrigatório")
 	@Column(length = 100)
 	private String email;
 
-	@NotBlank
+	@NotBlank(message = "Senha é obrigatório")
 	@Column(length = 150)
 	private String senha;
 
-	@NotNull
+	@NotNull(message = "Tipo Usuário é obrigatório")
 	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo_usuario", length = 20)
 	private TipoUsuario tipoUsuario;
