@@ -9,9 +9,9 @@
 
 	<title>Liporeduce</title>
 
-	<link rel="stylesheet" type="text/css" th:href="@{/assets/stylesheets/vendors.min.css}"/>
-	<link rel="stylesheet" type="text/css" th:href="@{/assets/stylesheets/algaworks.min.css}"/>
-	<link rel="stylesheet" type="text/css" th:href="@{/assets/stylesheets/application.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/layout/stylesheets/vendors.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/layout/stylesheets/algaworks.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/layout/stylesheets/application.css}"/>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,7 +35,7 @@
 
 	    <div class="navbar-header">
 	      <a class="navbar-brand  hidden-xs" href="#">
-	        <img alt="AlgaWorks" th:src="@{/assets/images/logo.png}"/>
+	        <img alt="AlgaWorks" th:src="@{/layout/images/logo.png}"/>
 	      </a>
 
 	      <ul class="nav  navbar-nav">
@@ -83,7 +83,7 @@
 	      </li>
 	      
 	      <li>
-	        <a href="#"><em class="fa  fa-sign-out"></em></a>
+	        <a th:href="@{/logout}"><em class="fa  fa-sign-out"></em></a>
 	      </li> 
 	    </ul>
 
@@ -160,8 +160,8 @@
 	</div>
 </div>
 
-<script th:src="@{/assets/javascripts/vendors.min.js}"></script>
-<script th:src="@{/assets/javascripts/algaworks.min.js}"></script>
+<script th:src="@{/layout/javascripts/vendors.min.js}"></script>
+<script th:src="@{/layout/javascripts/algaworks.min.js}"></script>
 
 <th:bloack layout:fragment="javascripts-extra"></th:bloack>
 </body>
