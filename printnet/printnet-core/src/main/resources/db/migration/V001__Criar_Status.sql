@@ -1,0 +1,10 @@
+CREATE TABLE [dbo].[status](
+	[id_status] [bigint] IDENTITY(1,1) NOT NULL,
+	[descricao] [varchar](70) NOT NULL,
+	[cor] [varchar](7) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id_status] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]
+) ON [PRIMARY]
+GO
