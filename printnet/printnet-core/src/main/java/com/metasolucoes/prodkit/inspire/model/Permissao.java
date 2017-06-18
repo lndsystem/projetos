@@ -10,8 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "permissao", schema = "dbo", catalog = "prodkit_printnet")
-public class Permissao implements Serializable{
+@Table(name = "permissao", schema = "dbo", catalog = "prodkit_inspire")
+public class Permissao implements Serializable {
 
 	private static final long serialVersionUID = 5595298566184986465L;
 
@@ -62,4 +62,5 @@ public class Permissao implements Serializable{
 			return false;
 		return true;
 	}
+
 }

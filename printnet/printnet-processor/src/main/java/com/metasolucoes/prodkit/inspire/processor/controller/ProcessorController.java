@@ -3,22 +3,21 @@ package com.metasolucoes.prodkit.inspire.processor.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.metasolucoes.prodkit.inspire.model.Status;
-import com.metasolucoes.prodkit.inspire.repository.StatusRepository;
+import com.metasolucoes.prodkit.inspire.model.Usuario;
+import com.metasolucoes.prodkit.inspire.service.UsuarioService;
 
 @Controller
 public class ProcessorController {
 
 	@Autowired
-	private StatusRepository statusRepository;
+	private UsuarioService usuarioServiceImpl;
 
 	public void executar(String... args) throws Exception {
 
-		Status s = new Status();
-		s.setDescricao("Teste");
-		s.setCor("#FFFFFF");
+		Usuario u = usuarioServiceImpl.buscarUsuarioByIdUsuario(1l);
+		System.out.println(u.toString());
 
-		statusRepository.save(s);
+		System.out.println("Fim");
 
 	}
 

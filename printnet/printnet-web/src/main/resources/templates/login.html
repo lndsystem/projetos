@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:data="http://www.thymeleaf.org/extras/data-attribute">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/login}" method="POST">
+		<input type="text" placeholder="Seu usuário" autofocus="autofocus"
+			name="username" />
+		<input type="password" placeholder="Sua senha"
+			name="password" />
+
+		<button type="submit">Entrar</button>
+	</form>
+</body>
+</html>

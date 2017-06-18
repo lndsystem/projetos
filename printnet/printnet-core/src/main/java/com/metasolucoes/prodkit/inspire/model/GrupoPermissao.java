@@ -7,19 +7,19 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuario_grupo", schema = "dbo", catalog = "prodkit_inspire")
-public class UsuarioGrupo implements Serializable{
-	
-	private static final long serialVersionUID = -3166851669406691729L;
+@Table(name = "grupo_permissao", schema = "dbo", catalog = "prodkit_inspire")
+public class GrupoPermissao implements Serializable {
+
+	private static final long serialVersionUID = 8361485188631925313L;
 
 	@EmbeddedId
-	private UsuarioGrupoId id;
+	private GrupoPermissaoId id;
 
-	public UsuarioGrupoId getId() {
+	public GrupoPermissaoId getId() {
 		return id;
 	}
 
-	public void setId(UsuarioGrupoId id) {
+	public void setId(GrupoPermissaoId id) {
 		this.id = id;
 	}
 
@@ -39,7 +39,7 @@ public class UsuarioGrupo implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UsuarioGrupo other = (UsuarioGrupo) obj;
+		GrupoPermissao other = (GrupoPermissao) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -47,5 +47,5 @@ public class UsuarioGrupo implements Serializable{
 			return false;
 		return true;
 	}
-	
+
 }

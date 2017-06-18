@@ -17,11 +17,13 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@Table(name = "usuario", schema = "dbo", catalog = "prodkit_printnet")
+@Table(name = "usuario", schema = "dbo", catalog = "prodkit_inspire")
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = -8004767129589331281L;
@@ -45,9 +47,9 @@ public class Usuario implements Serializable {
 
 	private Boolean ativo;
 
-	@NotNull(message = "Data de nascimento é obrigatório")
-	@Column(name = "data_nascimento")
-	private LocalDate dataNascimento;
+	@NotNull(message = "Data de cadastro é obrigatório")
+	@Column(name = "data_cadastro")
+	private LocalDate dataCadastro;
 
 	@Size(min = 1, message = "Selecione pelo menos um grupo")
 	@ManyToMany
@@ -102,12 +104,12 @@ public class Usuario implements Serializable {
 		this.ativo = ativo;
 	}
 
-	public LocalDate getDataNascimento() {
-		return dataNascimento;
+	public LocalDate getDataCadastro() {
+		return dataCadastro;
 	}
 
-	public void setDataNascimento(LocalDate dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setDataCadastro(LocalDate dataCadastro) {
+		this.dataCadastro = dataCadastro;
 	}
 
 	public List<Grupo> getGrupos() {
@@ -141,5 +143,10 @@ public class Usuario implements Serializable {
 		} else if (!idUsuario.equals(other.idUsuario))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
 	}
 }

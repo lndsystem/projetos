@@ -7,25 +7,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Embeddable
-public class UsuarioGrupoId implements Serializable{
-	
-	private static final long serialVersionUID = -3054771792008621601L;
+public class GrupoPermissaoId implements Serializable {
 
-	@ManyToOne
-	@JoinColumn(name = "id_usuario")
-	private Usuario usuario;
+	private static final long serialVersionUID = 7233274504736793869L;
 
 	@ManyToOne
 	@JoinColumn(name = "id_grupo")
 	private Grupo grupo;
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+	@ManyToOne
+	@JoinColumn(name = "id_permissao")
+	private Permissao permissao;
 
 	public Grupo getGrupo() {
 		return grupo;
@@ -35,12 +27,20 @@ public class UsuarioGrupoId implements Serializable{
 		this.grupo = grupo;
 	}
 
+	public Permissao getPermissao() {
+		return permissao;
+	}
+
+	public void setPermissao(Permissao permissao) {
+		this.permissao = permissao;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((grupo == null) ? 0 : grupo.hashCode());
-		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
+		result = prime * result + ((permissao == null) ? 0 : permissao.hashCode());
 		return result;
 	}
 
@@ -52,18 +52,18 @@ public class UsuarioGrupoId implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UsuarioGrupoId other = (UsuarioGrupoId) obj;
+		GrupoPermissaoId other = (GrupoPermissaoId) obj;
 		if (grupo == null) {
 			if (other.grupo != null)
 				return false;
 		} else if (!grupo.equals(other.grupo))
 			return false;
-		if (usuario == null) {
-			if (other.usuario != null)
+		if (permissao == null) {
+			if (other.permissao != null)
 				return false;
-		} else if (!usuario.equals(other.usuario))
+		} else if (!permissao.equals(other.permissao))
 			return false;
 		return true;
 	}
-	
+
 }

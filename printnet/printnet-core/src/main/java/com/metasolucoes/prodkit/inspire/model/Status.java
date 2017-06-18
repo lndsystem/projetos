@@ -9,16 +9,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@Table(name = "status", schema = "dbo", catalog = "prodkit_printnet")
+@Table(name = "status", schema = "dbo", catalog = "prodkit_inspire")
 public class Status implements Serializable {
 
 	private static final long serialVersionUID = 6865079164882167097L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_status")
 	private Long idStatus;
 
 	@NotBlank(message = "Descrição é obrigatória.")
@@ -76,5 +79,10 @@ public class Status implements Serializable {
 		} else if (!idStatus.equals(other.idStatus))
 			return false;
 		return true;
+	}
+	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
 	}
 }

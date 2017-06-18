@@ -3,6 +3,7 @@ package com.metasolucoes.prodkit.inspire.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,20 +16,21 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@Table(name = "grupo", schema = "dbo", catalog = "prodkit_printnet")
+@Table(name = "grupo", schema = "dbo", catalog = "prodkit_inspire")
 public class Grupo implements Serializable {
 
 	private static final long serialVersionUID = -3603683068840686877L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_grupo")
 	private Long idGrupo;
 
-	@NotBlank(message = "Nome 茅 obrigat贸rio")
+	@NotBlank(message = "Nome é obrigatório")
 	private String nome;
 
 	@ManyToMany
-	@JoinTable(name = "grupo_permissao", joinColumns = @JoinColumn(name = "codigo_grupo"), inverseJoinColumns = @JoinColumn(name = "codigo_permissao"))
+	@JoinTable(name = "grupo_permissao", joinColumns = @JoinColumn(name = "id_grupo"), inverseJoinColumns = @JoinColumn(name = "id_permissao"))
 	private List<Permissao> permissoes;
 
 	public Long getIdGrupo() {
@@ -79,4 +81,5 @@ public class Grupo implements Serializable {
 			return false;
 		return true;
 	}
+	
 }
