@@ -26,15 +26,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		// auth.inMemoryAuthentication()
-		// .withUser("admin").password("admin").roles("CADASTRO_CLIENTE");
-
 		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 	}
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/layout/**").antMatchers("/images/**");
+		web
+			.ignoring().antMatchers("/layout/**")
+			.antMatchers("/images/**")
+			.antMatchers("/javascripts/**")
+			.antMatchers("/stylesheets/**")
+			.antMatchers("/vendors/**");
 	}
 	
 	@Override
