@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/layout-simples.html}">
+	
+	<section layout:fragment="conteudo">
+		<form method="post">		
+			<div class="aw-simple-panel">
+				<img alt="MetaSolutions"  th:src="@{/images/logo.gif}"/>
+				
+				<div class="aw-simple-panel__message">
+					Informe o seu e-mail abaixo para receber as instruções de como criar uma nova senha.
+				</div>
+				
+				<div class="aw-simple-panel__box">
+					<div class="form-group  has-feedback">
+						<input type="text" class="form-control  input-lg" placeholder="Seu e-mail">
+						<span class="glyphicon  glyphicon-envelope  form-control-feedback" aria-hidden="true"></span>
+					</div>
+					
+					<div class="form-group">
+					<button type="submit" class="btn  btn-primary  btn-lg  aw-btn-full-width">Criar nova senha</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</section>
+</body>
+</html>

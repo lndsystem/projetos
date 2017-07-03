@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:data="http://www.thymeleaf.org/extras/data-attribute"
+	layout:decorate="~{layout/layout-completo.html}">
+<body>
+	<section class="aw-layout-content  js-content"  layout:fragment="conteudo">
+		<div class="page-header">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-8">
+						<h1>
+							Fila de Processamento - PrintNet
+						</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="container-fluid">
+			<form method="get" class="form-vertical">
+				<div class="form-group">
+					<label for="input-produto-nome">Nome</label>
+					<input id="input-produto-nome" type="text" class="form-control">
+				</div>
+		
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label for="input-produto-preco">Preço unitário</label>
+							
+							<div class="form-inline">
+								<input type="text" class="form-control  aw-form-control-inline-sm" placeholder="R$">
+								<label class="aw-form-label-between">até</label>
+								<input type="text" class="form-control  aw-form-control-inline-sm" placeholder="R$">
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-sm-6">
+						<div class="form-group">
+							<label for="input-produto-estoque">Estoque</label>
+							
+							<div class="form-inline">
+								<input type="text" class="form-control  aw-form-control-inline-sm">
+								<label class="aw-form-label-between">até</label>
+								<input type="text" class="form-control  aw-form-control-inline-sm">
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<button class="btn  btn-primary" type="submit" onclick="AW.showLoadingComponent(); return false;">
+						Pesquisar
+					</button>
+				</div>
+		
+			</form>
+		
+			<div>
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>Id</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="processo : ${fila}">
+							<td><td>
+							<td th:text="${processo.idProcessamento}"><td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="alert  aw-alert-no-results" role="alert">
+				A pesquisa não retornou nenhum produto.
+			</div>
+		</div>
+	</section>
+</body>
+</html>

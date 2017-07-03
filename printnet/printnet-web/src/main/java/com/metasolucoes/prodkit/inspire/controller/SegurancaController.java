@@ -15,4 +15,9 @@ public class SegurancaController {
 		}
 		return "login";
 	}
+	
+	@RequestMapping("/recuperar")
+	public String recuperar(){
+		return "recuperar";
+	}
 }

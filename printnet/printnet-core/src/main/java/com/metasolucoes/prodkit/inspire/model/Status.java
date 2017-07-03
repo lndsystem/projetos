@@ -31,6 +31,14 @@ public class Status implements Serializable {
 	@NotBlank(message = "Cor é obrigatória")
 	@Column(length = 7)
 	private String cor;
+	
+	public Status() {
+		
+	}
+	
+	public Status(Long idStatus){
+		this.idStatus = idStatus;
+	}
 
 	public Long getIdStatus() {
 		return idStatus;
