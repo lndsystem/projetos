@@ -9,10 +9,10 @@
 	<packaging>jar</packaging>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.2.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<groupId>com.metasolutions.printnet</groupId>
+		<artifactId>printnet</artifactId>
+		<version>0.1.0</version>
+		<relativePath>../printnet-common/pom.xml</relativePath>
 	</parent>
 
 	<properties>
@@ -60,6 +60,11 @@
 		<dependency>
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity4</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-java8time</artifactId>
+			<version>2.1.0.RELEASE</version>
 		</dependency>
 		<!-- Thymeleaf -->
 

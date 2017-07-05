@@ -52,22 +52,32 @@
 				<table class="table  table-bordered  table-condensed  table-hover">
 					<thead>
 						<tr>
-							<th>Id</th>
-							<th>Requisição</th>
-							<th>Job</th>
-							<th>Lote</th>
+							<th style="width: 85px"><input type="checkbox" /> Id</th>
+							<th style="width: 80px">Requisição</th>
+							<th style="width: 65px">Job</th>
+							<th style="width: 65px">Lote</th>
 							<th>Cliente</th>
 							<th>Sistema</th>
-							<th>Ambiente</th>
-							<th>Execução</th>
+							<th style="width: 85px">Ambiente</th>
+							<th style="width: 65px">Execução</th>
+							<th>Ident. Externa</th>
 							<th>Cadastro</th>
 							<th>Ação</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="processo : ${fila}">
+						<tr th:each="processo : ${fila}" th:style="|background:${processo.status.cor}|">
+							<td><input type="checkbox"/> <span th:text="${processo.idProcessamento}"></span></td>
+							<td th:text="${processo.idRequisicao}"></td>
+							<td th:text="${processo.idJob}"></td>
+							<td th:text="${processo.idLote}"></td>
+							<td th:text="${processo.idClienteGlobal}"></td>
+							<td th:text="${processo.idSistemaGlobal}"></td>
+							<td th:text="${processo.ambiente.descricao}">Ambiente</td>
+							<td>PrintNet</td>
+							<td th:text="${processo.identificacaoExterna}"></td>
+							<td th:text="${processo.dataCadastro}"></td>
 							<td></td>
-							<td th:text="${processo.ambiente}"></td>
 						</tr>
 					</tbody>
 				</table>
