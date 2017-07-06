@@ -63,6 +63,14 @@ public class Status implements Serializable {
 	public void setCor(String cor) {
 		this.cor = cor;
 	}
+	
+	public boolean isAbortar(){
+		return this.idStatus.intValue() == 8;
+	}
+	
+	public boolean isReprocesso() {
+		return this.idStatus.toString().matches("1|9|10|11");
+	}
 
 	@Override
 	public int hashCode() {

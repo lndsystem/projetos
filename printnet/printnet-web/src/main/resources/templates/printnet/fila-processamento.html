@@ -56,13 +56,13 @@
 							<th style="width: 80px">Requisição</th>
 							<th style="width: 65px">Job</th>
 							<th style="width: 65px">Lote</th>
-							<th>Cliente</th>
-							<th>Sistema</th>
+							<th style="width: 65px">Cliente</th>
+							<th style="width: 65px">Sistema</th>
 							<th style="width: 85px">Ambiente</th>
 							<th style="width: 65px">Execução</th>
 							<th>Ident. Externa</th>
-							<th>Cadastro</th>
-							<th>Ação</th>
+							<th style="width: 140px">Cadastro</th>
+							<th style="width: 100px" class="text-center">Ação</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -76,8 +76,25 @@
 							<td th:text="${processo.ambiente.descricao}">Ambiente</td>
 							<td>PrintNet</td>
 							<td th:text="${processo.identificacaoExterna}"></td>
-							<td th:text="${processo.dataCadastro}"></td>
-							<td></td>
+							<td th:text="${{processo.dataCadastro}}"></td>
+							<td class="text-center  content">
+								<a data-placement="top" title="Configurações" 
+									class="js-tooltip  btn  btn-link  btn-xs" >
+									<i class="fa fa-cog" aria-hidden="true"></i>
+								</a>
+								<a data-placement="top" title="Reiniciar processamento" 
+									class="js-tooltip  btn  btn-link  btn-xs" th:if="${processo.status.reprocesso}">
+									<i class="fa fa-refresh" aria-hidden="true"></i>
+								</a>
+								<a data-placement="top" title="Informações" 
+									class="js-tooltip  btn  btn-link  btn-xs">
+									<i class="fa fa-info-circle" aria-hidden="true"></i>
+								</a>
+								<a data-placement="top" title="Abortar Processamento" 
+									class="js-tooltip  btn  btn-link  btn-xs" th:if="${processo.status.abortar}">
+									<i class="fa fa-stop-circle" aria-hidden="true"></i>
+								</a>
+							</td>
 						</tr>
 					</tbody>
 				</table>
@@ -87,5 +104,11 @@
 			</div>
 		</div>
 	</section>
+	
+	<th:block th:fragment="javascripts-extra">
+		<script>
+			
+		</script>
+	</th:block>
 </body>
 </html>
