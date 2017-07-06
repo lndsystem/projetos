@@ -1,6 +1,6 @@
 CREATE TABLE [prodkit_inspire].[dbo].[fase] (
     id_fase BIGINT IDENTITY(1,1) NOT NULL,
-    nome_fase VARCHAR(20) NOT NULL,
+    nome_fase VARCHAR(50) NOT NULL,
 	CONSTRAINT PK_fase PRIMARY KEY NONCLUSTERED(id_fase)	
 )
 GO
