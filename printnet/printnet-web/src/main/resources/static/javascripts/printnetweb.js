@@ -16,3 +16,15 @@ $(function() {
 	var tooltip = new PrintNet.Tooltip();
 	tooltip.iniciar();
 });
+
+PrintNet.CheckboxAll = (function() {
+	function CheckboxAll() {
+		
+	}
+	
+	CheckboxAll.prototype.iniciar = function() {
+		
+	}
+	
+	return CheckboxAll;
+})

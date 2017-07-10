@@ -52,12 +52,10 @@
 				<table class="table  table-bordered  table-condensed  table-hover">
 					<thead>
 						<tr>
-							<th style="width: 85px"><input type="checkbox" /> Id</th>
-							<th style="width: 80px">Requisição</th>
+							<th style="width: 100px"><input type="checkbox" /> Requisição</th>
 							<th style="width: 65px">Job</th>
 							<th style="width: 65px">Lote</th>
 							<th style="width: 65px">Cliente</th>
-							<th style="width: 65px">Sistema</th>
 							<th style="width: 85px">Ambiente</th>
 							<th style="width: 65px">Execução</th>
 							<th>Ident. Externa</th>
@@ -67,12 +65,10 @@
 					</thead>
 					<tbody>
 						<tr th:each="processo : ${fila}" th:style="|background:${processo.status.cor}|">
-							<td><input type="checkbox"/> <span th:text="${processo.idProcessamento}"></span></td>
-							<td th:text="${processo.idRequisicao}"></td>
+							<td ><input type="checkbox"/> <span th:text="${processo.idRequisicao}"></span></td>
 							<td th:text="${processo.idJob}"></td>
 							<td th:text="${processo.idLote}"></td>
 							<td th:text="${processo.idClienteGlobal}"></td>
-							<td th:text="${processo.idSistemaGlobal}"></td>
 							<td th:text="${processo.ambiente.descricao}">Ambiente</td>
 							<td>PrintNet</td>
 							<td th:text="${processo.identificacaoExterna}"></td>

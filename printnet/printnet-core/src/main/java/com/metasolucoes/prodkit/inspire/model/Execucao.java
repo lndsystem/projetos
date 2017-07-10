@@ -45,6 +45,14 @@ public class Execucao implements Serializable {
 	@JoinColumn(name = "id_status", nullable = false)
 	private Status status;
 
+	private String duracao;
+
+	@Column(name = "quantidade_warning")
+	private Long quantidadeWarning;
+
+	@Column(name = "quantidade_sheets")
+	private Long quantidadeSheets;
+
 	public Long getIdExecucao() {
 		return idExecucao;
 	}
@@ -83,6 +91,30 @@ public class Execucao implements Serializable {
 
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+
+	public String getDuracao() {
+		return duracao;
+	}
+
+	public void setDuracao(String duracao) {
+		this.duracao = duracao;
+	}
+
+	public Long getQuantidadeWarning() {
+		return quantidadeWarning;
+	}
+
+	public void setQuantidadeWarning(Long quantidadeWarning) {
+		this.quantidadeWarning = quantidadeWarning;
+	}
+
+	public Long getQuantidadeSheets() {
+		return quantidadeSheets;
+	}
+
+	public void setQuantidadeSheets(Long quantidadeSheets) {
+		this.quantidadeSheets = quantidadeSheets;
 	}
 
 	@Override

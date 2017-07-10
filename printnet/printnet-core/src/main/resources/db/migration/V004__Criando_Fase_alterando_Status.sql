@@ -9,13 +9,17 @@ INSERT INTO [prodkit_inspire].[dbo].[fase] (nome_fase) VALUES ('Processamento Pr
 GO
 
 ALTER TABLE [prodkit_inspire].[dbo].[status] 
-	ADD id_fase BIGINT NOT NULL;
+	ADD id_fase BIGINT;
 GO
 
-ALTER TABLE [prodkit_inpire].[dbo].[status]
+ALTER TABLE [prodkit_inspire].[dbo].[status]
 	ADD CONSTRAINT FK_status_fase
 	FOREIGN KEY (id_fase) REFERENCES [prodkit_inspire].[dbo].[fase] (id_fase);
 GO
 
 UPDATE [prodkit_inspire].[dbo].[status] SET id_fase=1;
+GO
+
+ALTER TABLE [prodkit_inspire].[dbo].[status]
+	ALTER COLUMN [id_fase] BIGINT NOT NULL;
 GO
