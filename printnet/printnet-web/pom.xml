@@ -54,7 +54,11 @@
 		<dependency>
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity4</artifactId>
-		</dependency>		
+		</dependency>
+		<dependency>
+			<groupId>com.github.mxab.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-data-attribute</artifactId>
+		</dependency>
 		<!-- Thymeleaf -->
 
 		<dependency>

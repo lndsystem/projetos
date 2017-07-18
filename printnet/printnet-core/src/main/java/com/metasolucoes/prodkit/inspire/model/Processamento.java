@@ -44,6 +44,12 @@ public class Processamento implements Serializable {
 	@Column(name = "id_sistema_global")
 	private Long idSistemaGlobal;
 
+	@Column(name = "id_produto_pk")
+	private Long idProdutoPk;
+
+	@Column(name = "id_produto_sub_pk")
+	private Long idProdutoSubPk;
+
 	@OneToOne
 	@JoinColumn(name = "id_status", nullable = false)
 	private Status status;
@@ -108,6 +114,30 @@ public class Processamento implements Serializable {
 
 	public void setIdSistemaGlobal(Long idSistemaGlobal) {
 		this.idSistemaGlobal = idSistemaGlobal;
+	}
+
+	public Long getIdProdutoPk() {
+		return idProdutoPk;
+	}
+
+	public void setIdProdutoPk(Long idProdutoPk) {
+		this.idProdutoPk = idProdutoPk;
+	}
+
+	public Long getIdProdutoSubPk() {
+		return idProdutoSubPk;
+	}
+
+	public void setIdProdutoSubPk(Long idProdutoSubPk) {
+		this.idProdutoSubPk = idProdutoSubPk;
+	}
+
+	public TipoExecucao getTipoExecucao() {
+		return tipoExecucao;
+	}
+
+	public void setTipoExecucao(TipoExecucao tipoExecucao) {
+		this.tipoExecucao = tipoExecucao;
 	}
 
 	public Status getStatus() {

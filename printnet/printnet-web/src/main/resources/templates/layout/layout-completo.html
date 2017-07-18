@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/vendors.min.css}"/>
 	<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/algaworks.min.css}"/>
 	<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/application.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/jquery.waiting.css}"/>
 
     <link rel="shortcut icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
 
@@ -24,12 +25,7 @@
 	<![endif]-->
 </head>
 <body>
-
-<div class="aw-layout-loading  js-loading-overlay">
-	<div class="aw-layout-loading__container">
-		<span class="aw-balls-spinner">Carregando...</span>
-	</div>
-</div>
+<div class="jquery-waiting-base-container  hidden">Carregando...</div>
 
 <div class="aw-layout-page">
 	
