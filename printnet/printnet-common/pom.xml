@@ -16,6 +16,8 @@
 	</parent>
 
     <modules>
+        <module>../printnet-biblioteca-common</module>
+        <module>../printnet-utils</module>
         <module>../printnet-core</module>
         <module>../printnet-processor</module>
 	<module>../printnet-web</module>

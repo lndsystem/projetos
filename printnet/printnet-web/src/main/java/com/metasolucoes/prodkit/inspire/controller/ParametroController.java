@@ -21,7 +21,7 @@ public class ParametroController {
 	@Autowired
 	private WebService webService;
 
-	@GetMapping(value = "/{idProcessamento}")
+	@GetMapping(value = "/{idProcessamento}", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<Parametro> getParametroByIdProcessamento(@PathVariable (name = "idProcessamento") Processamento processamento) {
 		return webService.getParametroByIdProcessamento(processamento.getIdProcessamento());
 	}

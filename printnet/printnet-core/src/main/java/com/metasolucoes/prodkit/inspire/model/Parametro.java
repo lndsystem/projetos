@@ -18,7 +18,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@Table(name = "parametro", catalog = "dbo", schema = "prodkit_inspire")
+@Table(name = "parametro", schema = "dbo", catalog = "prodkit_inspire")
 public class Parametro implements Serializable {
 
 	private static final long serialVersionUID = 4539449661864154808L;

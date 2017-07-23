@@ -48,18 +48,33 @@ PrintNet.ModalConfiguracoes = (function() {
 		
 		var linkClicado = $(evento.currentTarget);
 		var url = linkClicado.data('url');
-		console.log('Url consulta: ' + url);
+		var codigo = linkClicado.data('codigo');
 		
 		$.ajax({
 			url: url,
 			method: 'GET',
 			contentType: 'application/json',
-			sucess: onCarregarModal.bind(this)
+			success: onCarregarModal.bind(this)
 		});
 	}
 	
 	function onCarregarModal(parametros) {
-		console.log('Parametros: ' + parametros);
+		this.modal.find('.modal-title').html('<strong>Parametros</strong>');
+		
+		var strParametros = '<div class="form-horizontal">';
+		parametros.forEach(function(parametro, index) {
+			strParametros += 
+				'<div class="form-group">' +
+					'<label class="col-sm-4  control-label">' + parametro.chave + '</label>' + 
+					'<div class="col-sm-8">' + 
+						'<input type="text" disabled="disabled" class="form-control" value="' + parametro.valor + '"/>' +
+					'</div>' + 
+				'</div>';
+		});
+		strParametros += '</div>';
+		
+		
+		this.modal.find('.modal-body').html(strParametros);
 		
 		this.loading.fadeOut("slow");
 		this.modal.modal('show');

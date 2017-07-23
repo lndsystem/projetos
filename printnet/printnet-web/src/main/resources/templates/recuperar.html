@@ -5,7 +5,7 @@
 	layout:decorate="~{layout/layout-simples.html}">
 	
 	<section layout:fragment="conteudo">
-		<form method="post">		
+		<form action="#" method="post" th:action="@{/recuperar/novasenha}" th:object="${recuperarSenhaDto}">		
 			<div class="aw-simple-panel">
 				<img alt="MetaSolutions"  th:src="@{/images/logo.gif}"/>
 				
@@ -14,8 +14,20 @@
 				</div>
 				
 				<div class="aw-simple-panel__box">
-					<div class="form-group  has-feedback">
-						<input type="text" class="form-control  input-lg" placeholder="Seu e-mail">
+					<div class="alert alert-success alert-dismissible" role="alert" th:if="${not #strings.isEmpty(mensagem_recup)}" >
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					  <span th:text="${mensagem_recup}"></span>
+					</div>
+					
+					<div th:if="${#fields.hasErrors('email')}">
+						<div class="alert alert-danger alert-dismissible" role="alert">
+						  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						  <strong>E-mail</strong> informado não é valido.
+						</div>
+					</div>
+				
+					<div class="form-group  has-feedback" th:classappend="${#fields.hasErrors('email')} ? has-error">
+						<input type="text" class="form-control  input-lg" placeholder="Seu e-mail@metaslt.com.br"  th:field="*{email}">
 						<span class="glyphicon  glyphicon-envelope  form-control-feedback" aria-hidden="true"></span>
 					</div>
 					
