@@ -8,27 +8,28 @@ import org.springframework.stereotype.Service;
 
 import com.metasolucoes.prodkit.inspire.model.Parametro;
 import com.metasolucoes.prodkit.inspire.model.Processamento;
+import com.metasolucoes.prodkit.inspire.model.RecuperacaoSenha;
 import com.metasolucoes.prodkit.inspire.model.Usuario;
 import com.metasolucoes.prodkit.inspire.repository.ParamentroRepository;
 import com.metasolucoes.prodkit.inspire.repository.ProcessamentoRepository;
-import com.metasolucoes.prodkit.inspire.repository.StatusRepository;
 import com.metasolucoes.prodkit.inspire.repository.UsuarioRepository;
+import com.metasolucoes.prodkit.inspire.service.RecuperacaoSenhaService;
 import com.metasolucoes.prodkit.inspire.service.WebService;
 
 @Service
 public class WebServiceImpl implements WebService {
 
 	@Autowired
-	private StatusRepository statusRepository;
-	
-	@Autowired
 	private ParamentroRepository parametroRepository;
 
 	@Autowired
 	private ProcessamentoRepository processamentoRepository;
-	
+
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+
+	@Autowired
+	private RecuperacaoSenhaService recuepracaoSenhaService;
 
 	@Override
 	public List<Processamento> getAllProcessamento() {
@@ -43,5 +44,15 @@ public class WebServiceImpl implements WebService {
 	@Override
 	public Optional<Usuario> pesquisarUsuarioByEmail(String email) {
 		return usuarioRepository.findByEmailIgnoreCaseAndAtivoTrue(email);
+	}
+
+	@Override
+	public Usuario salvarUsuario(Usuario usuario) {
+		return usuarioRepository.save(usuario);
+	}
+
+	@Override
+	public RecuperacaoSenha salvarRecuperarSenha(RecuperacaoSenha recuperacaoSenha) {
+		return recuepracaoSenhaService.salvar(recuperacaoSenha);
 	}
 }

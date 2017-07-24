@@ -5,12 +5,17 @@ import java.util.Optional;
 
 import com.metasolucoes.prodkit.inspire.model.Parametro;
 import com.metasolucoes.prodkit.inspire.model.Processamento;
+import com.metasolucoes.prodkit.inspire.model.RecuperacaoSenha;
 import com.metasolucoes.prodkit.inspire.model.Usuario;
 
 public interface WebService {
 	public List<Processamento> getAllProcessamento();
-	
+
 	public List<Parametro> getParametroByIdProcessamento(Long idProcessamento);
-	
+
 	public Optional<Usuario> pesquisarUsuarioByEmail(String email);
+
+	public Usuario salvarUsuario(Usuario usuario);
+
+	public RecuperacaoSenha salvarRecuperarSenha(RecuperacaoSenha recuperacaoSenha);
 }
