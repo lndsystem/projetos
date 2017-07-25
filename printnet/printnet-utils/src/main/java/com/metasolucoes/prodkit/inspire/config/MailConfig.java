@@ -23,19 +23,20 @@ public class MailConfig {
 	public Session mailSender() {
 		System.setProperty("mail.mime.charset", "UTF-8");
 
-		/** Parâmetros de conexão com servidor Gmail */
-		Properties props = new Properties();
+		Properties props = System.getProperties();
+		props.put("mail.smtp.host", env.getProperty("url.email"));
+		props.put("mail.transport.protocol", "smtps");
+		props.put("mail.smtp.port", env.getProperty("porta.email"));
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.smtp.host", "smtp.gmail.com");
-		props.put("mail.smtp.port", "587");
+		props.put("mail.smtp.starttls.required", "true");
 
 		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(env.getProperty("username"), env.getProperty("password"));
+				return new PasswordAuthentication(env.getProperty("username.email"), env.getProperty("password.email"));
 			}
 		});
-		session.setDebug(false);
+
 		return session;
 	}
 }

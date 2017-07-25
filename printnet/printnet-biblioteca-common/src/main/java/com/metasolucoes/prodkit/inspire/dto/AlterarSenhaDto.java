@@ -4,13 +4,12 @@ import org.hibernate.validator.constraints.NotBlank;
 
 public class AlterarSenhaDto {
 
-	@NotBlank
 	private String senhaAtual;
 
-	@NotBlank
+	@NotBlank(message = "Senha \"Nova Senha\" é obrigatória")
 	private String novaSenha;
 
-	@NotBlank
+	@NotBlank(message = "Senha \"Confirmação de Senha\" é obrigatória")
 	private String confirmacaoSenha;
 
 	public String getSenhaAtual() {

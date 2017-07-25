@@ -3,7 +3,8 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	xmlns:data="http://www.thymeleaf.org/extras/data-attribute"
-	layout:decorate="~{layout/layout-completo.html}">
+	layout:decorate="~{layout/layout-completo.html}"
+	xmlns:meta="http://metaslt.com.br">
 <body>
 	<section class="aw-layout-content  js-content"  layout:fragment="conteudo">
 		<div class="page-header">
@@ -19,27 +20,32 @@
 		</div>
 		
 		<div class="container-fluid">
-			<form action="#" method="post" th:object="${alterarSenhaDto}">
+			<form th:action="@{/alterarsenha}" method="post" th:object="${alterarSenhaDto}">
+				<meta:message/>
+				<!-- 
 				<div class="row">
-					<div class="form-group  col-sm-3">
+					<div class="form-group  col-sm-3" meta:classforerror="senhaAtual">
 						<label class="control-label" for="inputSenha">Senha atual</label>
 						<input class="form-control" type="password" name="inputSenha" th:field="*{senhaAtual}"/>
 					</div>
 				</div>
+				 -->
 				<div class="row">
-					<div class="form-group  col-sm-3">
+					<div class="form-group  col-sm-3" meta:classforerror="novaSenha">
 						<label class="control-label" for="inputNovaSenha">Nova Senha</label>
 						<input class="form-control" type="password" name="inputNovaSenha" th:field="*{novaSenha}"/>
 					</div>
 				</div>
 				<div class="row">
-					<div class="form-group  col-sm-3">
+					<div class="form-group  col-sm-3" meta:classforerror="confirmacaoSenha">
 						<label class="control-label" for="inputConfirmacao">Confirmação de Senha</label>
 						<input class="form-control" type="password" name="inputConfirmacao" th:field="*{confirmacaoSenha}"/>
 					</div>
 				</div>
 				<div class="row">
-					<button type="button" class="btn btn-primary">Alterar Senha</button>
+					<div class="form-group  col-sm-3">
+						<button type="submit" class="btn btn-primary">Alterar Senha</button>
+					</div>
 				</div>
 			</form>
 		</div>

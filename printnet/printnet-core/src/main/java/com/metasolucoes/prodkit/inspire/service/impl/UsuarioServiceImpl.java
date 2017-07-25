@@ -10,29 +10,35 @@ import com.metasolucoes.prodkit.inspire.model.Usuario;
 import com.metasolucoes.prodkit.inspire.repository.UsuarioRepository;
 import com.metasolucoes.prodkit.inspire.service.UsuarioService;
 
-@Service
+@Service("usuarioServiceImpl")
 public class UsuarioServiceImpl implements UsuarioService {
 
 	@Autowired
-	private UsuarioRepository usuarioRepository;
+	private UsuarioRepository repository;
 
 	@Override
 	public Usuario buscarUsuarioByIdUsuario(Long idUsuario) {
-		return usuarioRepository.buscarComGrupo(idUsuario);
+		return repository.buscarComGrupo(idUsuario);
 	}
 
 	@Override
 	public Optional<Usuario> buscarUsuariByEmailIgnoreCase(String email) {
-		return usuarioRepository.findByEmailIgnoreCase(email);
+		return repository.findByEmailIgnoreCase(email);
 	}
 
 	@Override
 	public List<String> permissoes(Usuario usuario) {
-		return usuarioRepository.permissoes(usuario);
+		return repository.permissoes(usuario);
 	}
 
 	@Override
 	public Optional<Usuario> buscarUsuarioByEmailAtivo(String email) {
-		return usuarioRepository.findByEmailIgnoreCaseAndAtivoTrue(email);
+		return repository.findByEmailIgnoreCaseAndAtivoTrue(email);
 	}
+
+	@Override
+	public Usuario salvar(Usuario usuario) {
+		return repository.save(usuario);
+	}
+
 }

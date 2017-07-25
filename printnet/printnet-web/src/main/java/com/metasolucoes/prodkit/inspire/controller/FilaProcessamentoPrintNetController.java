@@ -15,24 +15,25 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.metasolucoes.prodkit.inspire.model.Parametro;
 import com.metasolucoes.prodkit.inspire.model.Processamento;
-import com.metasolucoes.prodkit.inspire.service.WebService;
+import com.metasolucoes.prodkit.inspire.service.ProcessamentoService;
 
 @RestController
 @RequestMapping("/printnet")
 public class FilaProcessamentoPrintNetController {
 
 	@Autowired
-	private WebService webService;
+	private ProcessamentoService processamentoServiceImpl;
 
 	@GetMapping
 	public ModelAndView filaProcessamento() {
 		ModelAndView mv = new ModelAndView("printnet/fila-processamento");
-		mv.addObject("fila", webService.getAllProcessamento());
+		mv.addObject("fila", processamentoServiceImpl.getAllProcessamento());
 		return mv;
 	}
 
 	@PutMapping("")
-	public @ResponseBody ResponseEntity<List<Parametro>> getParametroProcesso(@PathVariable("idProcessamento") Processamento processamento) {
+	public @ResponseBody ResponseEntity<List<Parametro>> getParametroProcesso(
+			@PathVariable("idProcessamento") Processamento processamento) {
 
 		return ResponseEntity.ok(new ArrayList<>());
 	}

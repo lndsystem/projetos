@@ -47,10 +47,10 @@ public class JdbcConfig {
 		HashMap<String, Object> properties = new HashMap<String, Object>();
 		properties.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
 		properties.put("hibernate.jdbc.lob.non_contextual_creation", true);
-		properties.put("hbm2ddl.auto", "auto");
+		//properties.put("hbm2ddl.auto", "auto");
 		properties.put("show_sql", true);
 
-		return builder.dataSource(printnetCoreDataSource()).properties(properties).persistenceUnit("printnetPersistenceUnitName").packages("com.metasolucoes.prodkit.inspire..model").build();
+		return builder.dataSource(printnetCoreDataSource()).properties(properties).persistenceUnit("printnetPersistenceUnitName").packages("com.metasolucoes.prodkit.inspire.model").build();
 	}
 
 	@Bean(name = "printnetCoreTransactionManager")

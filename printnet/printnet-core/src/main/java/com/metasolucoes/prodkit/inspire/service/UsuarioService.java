@@ -14,5 +14,7 @@ public interface UsuarioService {
 	public Optional<Usuario> buscarUsuarioByEmailAtivo(String email);
 
 	public List<String> permissoes(Usuario usuario);
+	
+	public Usuario salvar(Usuario usuario);
 
 }

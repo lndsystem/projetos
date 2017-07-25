@@ -21,6 +21,8 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
@@ -28,9 +30,12 @@ import com.google.common.base.Throwables;
 import com.metasolucoes.prodkit.inspire.dto.RecuperarSenhaDto;
 
 @Component
+@PropertySource({ "classpath:env/mail-${ambiente:local}.properties" })
+@PropertySource(value = { "file://${HOME}/.inspire-mail.properties" }, ignoreResourceNotFound = true) // recuperar_por_arquivo
 public class Mailer {
 
-	private static final String remetente = "MetaSolutions - Inspire Monitor<saurosfestas@gmail.com>";
+	@Autowired
+	private Environment env;
 
 	@Autowired
 	private Session mailSender;
@@ -110,11 +115,11 @@ public class Mailer {
 	private void enviarEmail(String destinatario, StringBuilder corpo, List<MimeBodyPart> imgs, File... anexo) {
 		try {
 			Message message = new MimeMessage(mailSender);
-			message.setFrom(new InternetAddress(remetente));
+			message.setFrom(new InternetAddress(env.getProperty("remetente.email")));
 
 			Address[] toUser = InternetAddress.parse(destinatario);
 
-			message.setReplyTo(new InternetAddress[] { new InternetAddress("<saurosfestas@gmail.com>") });
+			message.setReplyTo(new InternetAddress[] { new InternetAddress(env.getProperty("endereco.email")) });
 			message.setRecipients(Message.RecipientType.TO, toUser);
 			message.setSubject("[MetaSolutions - Inspire Monitor] Recuperação de Senha");
 

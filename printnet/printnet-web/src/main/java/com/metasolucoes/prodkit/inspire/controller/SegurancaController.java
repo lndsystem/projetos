@@ -11,6 +11,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,13 +24,17 @@ import com.metasolucoes.prodkit.inspire.email.Mailer;
 import com.metasolucoes.prodkit.inspire.model.RecuperacaoSenha;
 import com.metasolucoes.prodkit.inspire.model.TipoSolicitacaoSenha;
 import com.metasolucoes.prodkit.inspire.model.Usuario;
-import com.metasolucoes.prodkit.inspire.service.WebService;
+import com.metasolucoes.prodkit.inspire.service.RecuperacaoSenhaService;
+import com.metasolucoes.prodkit.inspire.service.UsuarioService;
 
 @Controller
 public class SegurancaController {
 
 	@Autowired
-	private WebService webService;
+	private UsuarioService usuarioServiceImpl;
+
+	@Autowired
+	private RecuperacaoSenhaService recuperacaoSenhaServiceImpl;
 
 	@Autowired
 	private Mailer mailer;
@@ -52,6 +57,34 @@ public class SegurancaController {
 		return new ModelAndView("alterarsenha");
 	}
 
+	@PostMapping("/alterarsenha")
+	public ModelAndView salvarNovaSenha(@Valid AlterarSenhaDto alterarSenhaDto, BindingResult result, Model model,
+			@AuthenticationPrincipal User user, RedirectAttributes attributes) {
+		if (result.hasErrors()) {
+			return alterarSenha(alterarSenhaDto);
+		}
+
+		if (alterarSenhaDto.getNovaSenha().equals(alterarSenhaDto.getConfirmacaoSenha()) == false) {
+			result.rejectValue("confirmacaoSenha", null, "A confirmação de senha é diferente da senha");
+			return alterarSenha(alterarSenhaDto);
+		}
+		Optional<Usuario> usuario = usuarioServiceImpl.buscarUsuarioByEmailAtivo(user.getUsername());
+
+		RecuperacaoSenha recup = new RecuperacaoSenha();
+		recup.setDataSolicitacao(LocalDateTime.now());
+		recup.setTipoSolicitacaoSenha(TipoSolicitacaoSenha.ATUALIZOU);
+		recup.setUsuario(usuario.get());
+		recup.setUltimaSenha(usuario.get().getSenha());
+		recuperacaoSenhaServiceImpl.salvar(recup);
+
+		usuario.get().setSenha(new BCryptPasswordEncoder().encode(alterarSenhaDto.getNovaSenha()));
+		usuarioServiceImpl.salvar(usuario.get());
+
+		attributes.addFlashAttribute("mensagem", "Senha alterada com sucesso");
+
+		return new ModelAndView("redirect:/alterarsenha");
+	}
+
 	@PostMapping("/recuperar/novasenha")
 	public ModelAndView novaSenha(@Valid RecuperarSenhaDto recuperarSenhaDto, BindingResult result,
 			RedirectAttributes attributes) {
@@ -59,7 +92,7 @@ public class SegurancaController {
 			return recuperar(recuperarSenhaDto);
 		}
 
-		Optional<Usuario> usuario = webService.pesquisarUsuarioByEmail(recuperarSenhaDto.getEmail());
+		Optional<Usuario> usuario = usuarioServiceImpl.buscarUsuariByEmailIgnoreCase(recuperarSenhaDto.getEmail());
 		if (usuario.isPresent() == false) {
 			result.rejectValue("email", "email", "E-mail informado não confere.");
 			return recuperar(recuperarSenhaDto);
@@ -73,12 +106,12 @@ public class SegurancaController {
 		recupSenha.setDataSolicitacao(LocalDateTime.now());
 		recupSenha.setUltimaSenha(usuario.get().getSenha());
 		recupSenha.setTipoSolicitacaoSenha(TipoSolicitacaoSenha.RECUPEROU);
-		webService.salvarRecuperarSenha(recupSenha);
+		recuperacaoSenhaServiceImpl.salvar(recupSenha);
 
 		recuperarSenhaDto.setDataSolicitacao(LocalDateTime.now());
 		recuperarSenhaDto.setNovaSenha(novaSenha);
 		usuario.get().setSenha(novaSenhaCript);
-		webService.salvarUsuario(usuario.get());
+		usuarioServiceImpl.salvar(usuario.get());
 
 		attributes.addFlashAttribute("mensagem_recup", "A sua nova senha será enviada ao seu e-mail!");
 

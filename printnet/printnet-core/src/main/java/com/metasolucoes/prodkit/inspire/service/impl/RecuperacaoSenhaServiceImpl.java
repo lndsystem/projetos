@@ -7,7 +7,7 @@ import com.metasolucoes.prodkit.inspire.model.RecuperacaoSenha;
 import com.metasolucoes.prodkit.inspire.repository.RecuperacaoSenhaRepository;
 import com.metasolucoes.prodkit.inspire.service.RecuperacaoSenhaService;
 
-@Service
+@Service("RecuperacaoSenhaServiceImpl")
 public class RecuperacaoSenhaServiceImpl implements RecuperacaoSenhaService {
 
 	@Autowired

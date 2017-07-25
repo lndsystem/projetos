@@ -12,23 +12,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.metasolucoes.prodkit.inspire.model.Parametro;
 import com.metasolucoes.prodkit.inspire.model.Processamento;
-import com.metasolucoes.prodkit.inspire.service.WebService;
+import com.metasolucoes.prodkit.inspire.service.ParametroService;
 
 @RestController
 @RequestMapping("/parametro")
 public class ParametroController {
 
 	@Autowired
-	private WebService webService;
+	private ParametroService parametroServiceImpl;
 
 	@GetMapping(value = "/{idProcessamento}", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<Parametro> getParametroByIdProcessamento(@PathVariable (name = "idProcessamento") Processamento processamento) {
-		return webService.getParametroByIdProcessamento(processamento.getIdProcessamento());
-	}
-	
-	@GetMapping
-	public String teste() {
-		
-		return "XPTO";
+	public @ResponseBody List<Parametro> getParametroByIdProcessamento(
+			@PathVariable(name = "idProcessamento") Processamento processamento) {
+		return parametroServiceImpl.getParametroByIdProcessamento(processamento.getIdProcessamento());
+
 	}
 }
