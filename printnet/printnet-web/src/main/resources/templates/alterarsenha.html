@@ -21,7 +21,11 @@
 		
 		<div class="container-fluid">
 			<form th:action="@{/alterarsenha}" method="post" th:object="${alterarSenhaDto}">
-				<meta:message/>
+				<div class="row">
+					<div class="col-sm-3">
+						<meta:message/>
+					</div>
+				</div>
 				<!-- 
 				<div class="row">
 					<div class="form-group  col-sm-3" meta:classforerror="senhaAtual">
