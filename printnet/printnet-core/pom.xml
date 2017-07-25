@@ -72,13 +72,14 @@
 				<configuration>
 					<driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
 					<!-- PRODUÇÃO -->
+					<!-- 
 					<url>jdbc:sqlserver://13.58.85.9:1433;database=prodkit_inspire</url>
 					<user>printnet</user>
 					<password>meta.2017</password>
-
+-->
 					<!-- DESENVOLVIMENTO -->
-					<!-- <url>jdbc:sqlserver://192.168.0.129:1433;database=compart_convert</url> 
-						<user>prodkit3</user> <password>prodkit3</password> -->
+					<url>jdbc:sqlserver://192.168.0.129:1433;database=prodkit_inspire</url> 
+						<user>prodkit3</user> <password>prodkit3</password> 
 				</configuration>
 				<dependencies>
 					<dependency>

@@ -2,7 +2,7 @@
 <html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	xmlns:data="http://www.thymeleaf.org/extras/data-attribute"
+	xmlns:data="http://www.thymeleaf.org/extras/data"
 	layout:decorate="~{layout/layout-completo.html}">
 <body>
 	<section class="aw-layout-content  js-content"  layout:fragment="conteudo">
@@ -77,8 +77,7 @@
 							<td th:text="${{processo.dataCadastro}}"></td>
 							<td class="text-center  content">
 								<a data-placement="top" title="Configurações" 
-									class="js-tooltip  btn  btn-link  btn-xs  js-button-config"
-									data-toggle="modal" 
+									class="js-tooltip  btn  btn-link  btn-xs  js-button-config"									
 									data:url="@{/parametro/{idProcessamento}(idProcessamento=${processo.idProcessamento})}"
 									data:codigo="@{{idProcessamento}(idProcessamento=${processo.idProcessamento})}">
 									<i class="fa fa-cog" aria-hidden="true"></i>

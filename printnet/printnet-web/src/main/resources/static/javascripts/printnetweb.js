@@ -43,12 +43,16 @@ PrintNet.ModalConfiguracoes = (function() {
 	}
 
 	function onClinkConfig(evento) {
+		console.log('Entrou');
 		this.loading.removeClass('hidden');
 		this.loading.fadeIn("slow");
 		
 		var linkClicado = $(evento.currentTarget);
 		var url = linkClicado.data('url');
 		var codigo = linkClicado.data('codigo');
+		
+		console.log('url: ' + url);
+		console.log('codigo: ' + codigo);
 		
 		$.ajax({
 			url: url,

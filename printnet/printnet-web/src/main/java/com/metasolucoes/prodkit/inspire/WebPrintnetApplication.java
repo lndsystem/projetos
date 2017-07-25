@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
 
-import com.github.mxab.thymeleaf.extras.dataattribute.dialect.DataAttributeDialect;
+import com.metasolucoes.prodkit.inspire.dialect.DataAttributeDialect;
 import com.metasolucoes.prodkit.inspire.thymeleaf.MetaDialect;
 
 @SpringBootApplication
@@ -17,7 +17,7 @@ public class WebPrintnetApplication {
 	}
 
 	@Bean
-	public DataAttributeDialect config() {
+	public DataAttributeDialect dialectDataAttribute() {
 		return new DataAttributeDialect();
 	}
 
