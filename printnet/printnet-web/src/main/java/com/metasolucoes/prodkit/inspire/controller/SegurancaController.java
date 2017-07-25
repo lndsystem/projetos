@@ -12,14 +12,16 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.metasolucoes.prodkit.inspire.dto.AlterarSenhaDto;
 import com.metasolucoes.prodkit.inspire.dto.RecuperarSenhaDto;
 import com.metasolucoes.prodkit.inspire.email.Mailer;
 import com.metasolucoes.prodkit.inspire.model.RecuperacaoSenha;
+import com.metasolucoes.prodkit.inspire.model.TipoSolicitacaoSenha;
 import com.metasolucoes.prodkit.inspire.model.Usuario;
 import com.metasolucoes.prodkit.inspire.service.WebService;
 
@@ -32,7 +34,7 @@ public class SegurancaController {
 	@Autowired
 	private Mailer mailer;
 
-	@RequestMapping("/login")
+	@GetMapping("/login")
 	public String login(@AuthenticationPrincipal User user) {
 		if (user != null) {
 			return "redirect:/";
@@ -40,9 +42,14 @@ public class SegurancaController {
 		return "login";
 	}
 
-	@RequestMapping("/recuperar")
+	@GetMapping("/recuperar")
 	public ModelAndView recuperar(RecuperarSenhaDto recuperarSenhaDto) {
 		return new ModelAndView("recuperar");
+	}
+
+	@GetMapping("/alterarsenha")
+	public ModelAndView alterarSenha(AlterarSenhaDto alterarSenhaDto) {
+		return new ModelAndView("alterarsenha");
 	}
 
 	@PostMapping("/recuperar/novasenha")
@@ -65,6 +72,7 @@ public class SegurancaController {
 		recupSenha.setUsuario(usuario.get());
 		recupSenha.setDataSolicitacao(LocalDateTime.now());
 		recupSenha.setUltimaSenha(usuario.get().getSenha());
+		recupSenha.setTipoSolicitacaoSenha(TipoSolicitacaoSenha.RECUPEROU);
 		webService.salvarRecuperarSenha(recupSenha);
 
 		recuperarSenhaDto.setDataSolicitacao(LocalDateTime.now());

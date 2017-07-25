@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:data="http://www.thymeleaf.org/extras/data-attribute"
+	layout:decorate="~{layout/layout-completo.html}">
+<body>
+	<section class="aw-layout-content  js-content"  layout:fragment="conteudo">
+		<div class="page-header">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-8">
+						<h1>
+							Alterar senha - PrintNet
+						</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container-fluid">
+			<form action="#" method="post" th:object="${alterarSenhaDto}">
+				<div class="row">
+					<div class="form-group  col-sm-3">
+						<label class="control-label" for="inputSenha">Senha atual</label>
+						<input class="form-control" type="password" name="inputSenha" th:field="*{senhaAtual}"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group  col-sm-3">
+						<label class="control-label" for="inputNovaSenha">Nova Senha</label>
+						<input class="form-control" type="password" name="inputNovaSenha" th:field="*{novaSenha}"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group  col-sm-3">
+						<label class="control-label" for="inputConfirmacao">Confirmação de Senha</label>
+						<input class="form-control" type="password" name="inputConfirmacao" th:field="*{confirmacaoSenha}"/>
+					</div>
+				</div>
+				<div class="row">
+					<button type="button" class="btn btn-primary">Alterar Senha</button>
+				</div>
+			</form>
+		</div>
+	</section>
+</body>
