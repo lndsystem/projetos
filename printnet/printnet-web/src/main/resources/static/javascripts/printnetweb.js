@@ -1,35 +1,49 @@
 var PrintNet = PrintNet || {};
-/*	  
-(function($) {
-	$.fn.waiting = function(options) {
-		options = $.extend({
-			modo : 'normal'
-		}, options);
-		this.fadeOut(options.modo);
-		return this;
-	};
-})(jQuery);
 
-$(document).ready(function() {
-	$(".jquery-waiting-base-container").waiting({
-		modo : "slow"
-	});
-});
-*/
-
-function sleep_ms(millisecs) {
-    var initiation = new Date().getTime();
-    while ((new Date().getTime() - initiation) < millisecs);
-}
-
-/*
- * PrintNet.Tooltip = (function () { function Tolltip() { this.tooltip =
- * $('.js-tooltip'); }
- * 
- * Tooltip.prototype.iniciar = function() { this.tooltip.tooltip(); }
- * 
- * return Tooltip; })();
- */
+PrintNet.ModalInformacoes = (function() {
+	function ModalInformacoes() {
+		this.loading = $('.jquery-waiting-base-container');
+		this.modal = $('.js-show-modal-informacoes');
+		this.link = $('.js-button-info');
+		
+	}
+	
+	ModalInformacoes.prototype.iniciar = function() {
+		this.link.on('click', onClickInfo.bind(this));
+	}
+	
+	function onClickInfo(evento){
+		this.loading.removeClass('hidden');
+		this.loading.fadeIn("slow");
+		
+		var linkClicado = $(evento.currentTarget);
+		var url = linkClicado.data('url');
+		this.codigo = linkClicado.data('codigo');
+		
+		
+		$.ajax({
+			url: url,
+			method: 'GET',
+			contentType: 'application/json',
+			success: onCarregarModal.bind(this)
+		});
+	}
+	
+	function onCarregarModal(execucoes){
+		this.modal.find('.modal-title').html('<strong>Informações (Processo: ' + this.codigo + ')</strong>');
+		
+		if(typeof image_array !== 'undefined' && image_array.length > 0){
+						
+		}else{
+			
+		}
+		
+		this.loading.fadeOut("slow");
+		this.modal.modal('show');
+	}
+	
+	return ModalInformacoes;
+})();
 
 PrintNet.ModalConfiguracoes = (function() {
 	function ModalConfiguracoes() {
@@ -43,16 +57,12 @@ PrintNet.ModalConfiguracoes = (function() {
 	}
 
 	function onClinkConfig(evento) {
-		console.log('Entrou');
 		this.loading.removeClass('hidden');
 		this.loading.fadeIn("slow");
 		
 		var linkClicado = $(evento.currentTarget);
 		var url = linkClicado.data('url');
-		var codigo = linkClicado.data('codigo');
-		
-		console.log('url: ' + url);
-		console.log('codigo: ' + codigo);
+		this.codigo = linkClicado.data('codigo');
 		
 		$.ajax({
 			url: url,
@@ -63,7 +73,7 @@ PrintNet.ModalConfiguracoes = (function() {
 	}
 	
 	function onCarregarModal(parametros) {
-		this.modal.find('.modal-title').html('<strong>Parametros</strong>');
+		this.modal.find('.modal-title').html('<strong>Parametros (Processo: ' + this.codigo + ')</strong>');
 		
 		var strParametros = '<div class="form-horizontal">';
 		parametros.forEach(function(parametro, index) {
@@ -99,10 +109,10 @@ PrintNet.CheckboxAll = (function() {
 	return CheckboxAll;
 })();
 
-$(function() {
-	// var tooltip = new PrintNet.Tooltip();
-	// tooltip.iniciar();
-
+$(function() {	
 	var modalConfiguracoes = new PrintNet.ModalConfiguracoes();
 	modalConfiguracoes.iniciar();
+	
+	var modalInformacoes = new PrintNet.ModalInformacoes();
+	modalInformacoes.iniciar();
 });
