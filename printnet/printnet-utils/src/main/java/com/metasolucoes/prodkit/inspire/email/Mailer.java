@@ -30,8 +30,8 @@ import com.google.common.base.Throwables;
 import com.metasolucoes.prodkit.inspire.dto.RecuperarSenhaDto;
 
 @Component
-@PropertySource({ "classpath:env/mail-${ambiente:local}.properties" })
-@PropertySource(value = { "file://${HOME}/.inspire-mail.properties" }, ignoreResourceNotFound = true) // recuperar_por_arquivo
+@PropertySource({ "classpath:env/mail-${ambiente:casa}.properties" })
+@PropertySource(value = { "file://${HOME}/.inspire-mail.properties" }, ignoreResourceNotFound = true) 
 public class Mailer {
 
 	@Autowired

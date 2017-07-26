@@ -21,7 +21,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 @Configuration
 @EnableJpaRepositories(basePackages = "com.metasolucoes.prodkit.inspire.repository", entityManagerFactoryRef = "printnetCoreEntityManager", transactionManagerRef = "printnetCoreTransactionManager")
-@PropertySource(value = { "classpath:env/database-${spring.profiles.active:development}.properties" }, ignoreResourceNotFound = true)
+@PropertySource(value = { "classpath:env/database-${ambiente:casa}.properties" }, ignoreResourceNotFound = true)
 public class JdbcConfig {
 
 	@Autowired

@@ -12,8 +12,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
 @Configuration
-@PropertySource({ "classpath:env/mail-${ambiente:local}.properties" })
-@PropertySource(value = { "file://${HOME}/.inspire-mail.properties" }, ignoreResourceNotFound = true) // recuperar_por_arquivo
+@PropertySource({ "classpath:env/mail-${ambiente:casa}.properties" })
+@PropertySource(value = { "file://${HOME}/.inspire-mail.properties" }, ignoreResourceNotFound = true) 
 public class MailConfig {
 
 	@Autowired
