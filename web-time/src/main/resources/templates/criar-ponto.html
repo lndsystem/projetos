@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<title>Controle de Ponto</title>
+
+<link rel="stylesheet" href="/vendors/css/bootstrap.min.css" />
+<!-- 
+<link rel="stylesheet" href="/vendors/css/bootstrap-datepicker3.min.css" />
+<link rel="stylesheet" href="/vendors/css/bootstrap-datepicker3.standalone.min.css" />
+ -->
+<link rel="stylesheet" href="/vendors/css/bootstrap-datetimepicker.min.css" />
+
+</head>
+<body>
+
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">
+	        <!-- <img alt="Brand" />  -->
+	      </a>
+	    </div>
+	  </div>
+	</nav>
+	<div class="container">
+		
+		<form th:object="${pontoDto}">
+			<div class="alert alert-success">
+				<strong>Success!</strong> It is working as we expected.
+			</div>
+		
+			<div class="row  col-sm-offset-5  col-sm-2">
+				<div class="form-group">
+			 		<label class="control-label">Data Inicial</label>
+					<input type="text"  class="form-control  datepicker" th:field="*{inicio}"/>
+				</div>
+			</div>
+			
+			<div class="row  col-sm-offset-5  col-sm-2">
+				<div class="form-group">
+			 		<label class="control-label">Data Final</label>
+					<input type="text"  class="form-control  datepicker" th:field="*{fim}"/>
+				</div>
+			</div>
+			
+			<div class="row  col-sm-offset-5  col-sm-2">
+				<div class="form-group">
+			 		<label class="control-label">Observacao</label>
+					<input type="text"  class="form-control" th:field="*{observacao}"/>
+				</div>
+			</div>
+			
+			<div class="row col-sm-offset-5  col-sm-2">
+				<button type="submit" class="btn btn-primary">Salvar</button>
+			</div>
+		
+		</form>
+	</div>
+	<script src="/vendors/js/jquery-3.2.1.min.js"></script>
+	<script src="/vendors/js/bootstrap.min.js"></script>
+	
+	<script src="/vendors/js/moment.min.js"></script>
+	<script src="/vendors/js/pt-br.js"></script>
+	<script src="/vendors/js/bootstrap-datetimepicker.min.js"></script>
+	<!-- 
+	<script src="/vendors/js/bootstrap-datepicker.min.js"></script>
+	<script src="/vendors/js/bootstrap-datepicker.pt-BR.min.js"></script>
+	 -->
+	<script>
+	    $('.datepicker').datetimepicker({
+	    	sideBySide: true,
+	    	locale: 'pt-br'
+	    });
+	</script>
+</body>
+</html>
