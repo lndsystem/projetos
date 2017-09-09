@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.focoimovel.com.br/lista_imoveis.php by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Sep 2017 01:11:33 GMT -->
+<head>
+	<!-- Basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Foco Im&oacute;vel - Aqui voc&ecirc; encontra o melhor imovel da regi&ccedil;&atilde;o.</title>
+
+<meta name="keywords" content="Foco imovel,Foco im�veis, venda de im�veis, alugu�l, casa, apartamento, condominio, morar" />
+<meta name="description" content="Foco imovel">
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<!-- Vendor CSS -->
+<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="vendor/animate/animate.min.css">
+<link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
+<link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
+<link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
+
+<!-- Theme CSS -->
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/theme-elements.css">
+<link rel="stylesheet" href="css/theme-blog.css">
+<link rel="stylesheet" href="css/theme-shop.css">
+
+<!-- Current Page CSS -->
+<link rel="stylesheet" href="vendor/rs-plugin/css/settings.css">
+<link rel="stylesheet" href="vendor/rs-plugin/css/layers.css">
+<link rel="stylesheet" href="vendor/rs-plugin/css/navigation.css">
+
+<!-- Skin CSS -->
+<link rel="stylesheet" href="css/skins/skin-real-estate.css">
+<script src="master/style-switcher/style.switcher.localstorage.js"></script>
+
+<!-- Demo CSS -->
+<link rel="stylesheet" href="css/demos/demo-real-estate.css">
+
+<!-- Theme Custom CSS -->
+<link rel="stylesheet" href="css/custom.css">
+
+<!-- Head Libs -->
+<script src="vendor/modernizr/modernizr.min.js"></script>
+
+<script type="text/javascript" src="../ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function () {
+  function removeCampo() {
+	$(".removerCampo").unbind("click");
+	$(".removerCampo").bind("click", function () {
+	   if($("tr.linhas").length > 1){
+		$(this).parent().parent().remove();
+	   }
+	});
+  }
+
+  $(".adicionarCampo").click(function () {
+	novoCampo = $("tr.linhas:first").clone();
+	novoCampo.find("input").val("");
+	novoCampo.insertAfter("tr.linhas:last");
+	removeCampo();
+  });
+});
+</script>
+
+</head>
+
+<!--	<body class="loading-overlay-showing" data-loading-overlay> -->
+	echo "<body>";
+	<!--
+	</head>
+	<body class="loading-overlay-showing" data-loading-overlay>
+	-->
+		<div class="body">
+			<header id="header" class="header-narrow" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 37, 'stickySetTop': '-37px', 'stickyChangeLogo': false}">
+	<div class="header-body background-color-primary pt-none pb-none">
+		<div class="header-top header-top header-top-style-3 header-top-custom background-color-primary m-none">
+			<div class="container">
+				<nav class="header-nav-top pull-left">
+					<ul class="nav nav-pills">
+						<li class="hidden-xs">
+							<span class="ws-nowrap"><i class="icon-location-pin icons"></i> Osasco, S&atilde;o paulo</span>
+						</li>
+						<li>
+							<span class="ws-nowrap"><i class="icon-call-out icons"></i> (55+ 11) 96977-5700</span>
+						</li>
+						<li class="hidden-xs">
+							<span class="ws-nowrap"><i class="icon-envelope-open icons"></i> <a class="text-decoration-none" href="mailto:mail@example.com">focoimovel@contato.com.br</a></span>
+						</li>
+
+											</ul>
+				</nav>
+				<nav class="header-nav-top langs pull-right mr-none">
+					<ul class="nav nav-pills">
+						<li>
+							<a href="#" class="dropdown-menu-toggle" id="dropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								Login&nbsp;<img src="img/ico_login.png" width="20" height="20">
+								<!--  <i class="fa fa-sort-down"></i> -->
+							</a>
+							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownLanguage">
+								<li>	<a href='acesso_login.html'><img src='img/ico_login.png' width='20' height='20'>&nbsp;Efetuar login</a></li><li>	<a href='user_register.html'><img src='img/ico_cadastro.png' width='20' height='20'>&nbsp;Cadastrar no portal</a></li>							</ul>
+						</li>
+						<li class="blog">
+							<a href="acesso_login.html" title="Clique aqui para anunciar um im&oacute;vel">
+								Anunciar&nbsp;<img src="img/ico_anunciar.png" width="20" height="20">
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<div class="header-container container custom-position-initial">
+			<div class="header-row">
+				<div class="header-column">
+					<div class="header-logo">
+						<a href="index.html">
+							<img alt="Porto" width="143" height="40" src="img/logos/logo_focoimovel.png">
+						</a>
+					</div>
+				</div>
+				<div class="header-column">
+					<div class="header-row">
+						<div class="header-nav">
+							<button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+								<i class="fa fa-bars"></i>
+							</button>
+							<div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse m-none">
+								<nav>
+									<ul class="nav nav-pills" id="mainNav">
+										<li class="dropdown-full-color dropdown-quaternary active">
+											<a href="index.html">
+												Home
+											</a>
+										</li>
+										<li class="dropdown-full-color dropdown-quaternary">
+											<a href="lista_imoveis.html">
+												Im&oacute;veis
+											</a>
+										</li>
+										<li class="dropdown dropdown-full-color dropdown-quaternary">
+											<a class="dropdown-toggle" href="#">
+												Quem somos
+											</a>
+											<ul class="dropdown-menu">
+												<li><a href="emconstrucao.html">Corretores</a></li>
+												<li><a href="emconstrucao.html">Sobre a empresa</a></li>
+											</ul>
+										</li>
+										<li class="dropdown-full-color dropdown-quaternary">
+											<a href="info_contato.html">
+												Contato
+											</a>
+										</li>
+
+										<li class="dropdown dropdown-full-color dropdown-quaternary dropdown-mega" id="headerSearchProperties">
+											<a class="dropdown-toggle" href="#">
+												Pesquisa &nbsp;<img src="img/ico_pesquisa.png" width="20" height="20">
+											</a>
+
+											<ul class="dropdown-menu custom-fullwidth-dropdown-menu">
+												<li>
+													<div class="dropdown-mega-content">
+														<form id="propertiesFormHeader" action="http://www.focoimovel.com.br/lista_pesquisa.php" method="POST">
+															<div class="container p-none">
+																<div class="row">
+																	<div class="col-md-2">
+																		<div class="form-control-custom">
+																			<select class="form-control text-uppercase font-size-sm"  data-msg-required="Por favor, selecionar uma finalidade do im&oacute;vel." id="frmPF" name="frmPF" required="">
+																				<option value="">Finalidade</option>
+
+																				<option value='Alugar'>Alugar</option><option value='Comprar'>Comprar</option>																			</select>
+																		</div>
+																	</div>
+																	<div class="col-md-2">
+																		<div class="form-control-custom">
+																			<select class="form-control text-uppercase font-size-sm" data-msg-required="Por favor, selecionar o tipo da resid&ecirc;ncia." id="frmPT" name="frmPT" required="">
+																				<option value="">Tipo resid&ecirc;ncia</option>
+
+																				<option value='Apartamento'>Apartamento</option><option value='Casa'>Casa</option><option value='Casa de Condomínio'>Casa de Condomínio</option><option value='Chácara'>Chácara</option><option value='Cobertura'>Cobertura</option><option value='Comercial'>Comercial</option><option value='Consultório'>Consultório</option><option value='Edifício residencial'>Edifício residencial</option><option value='Fazenda/Sítio'>Fazenda/Sítio</option><option value='Flat'>Flat</option><option value='Galpão/Depósito/Armazém'>Galpão/Depósito/Armazém</option><option value='Imóvel comercial'>Imóvel comercial</option><option value='Kitnet'>Kitnet</option><option value='Loja'>Loja</option><option value='Lote/Terreno'>Lote/Terreno</option><option value='Lote/Terreno'>Lote/Terreno</option><option value='Ponto comercial'>Ponto comercial</option><option value='Residencial'>Residencial</option><option value='Sala comercial'>Sala comercial</option><option value='Sobrado'>Sobrado</option>																			</select>
+																		</div>
+																	</div>
+
+
+																	<div class="col-md-2">
+																		<div class="form-control-custom">
+																			<select class="form-control text-uppercase font-size-sm" name="frmVlrMin"  id="frmVlrMin" >
+																				<option value="">Valor min&iacute;mo</option>
+																				<option value="5000000">50,000.00</option>
+																				<option value="10000000">100,000.00</option>
+																				<option value="15000000">150,000.00</option>
+																				<option value="20000000">200,000.00</option>
+																				<option value="25000000">250,000.00</option>
+																				<option value="30000000">300,000.00</option>
+																				<option value="">Indiferente</option>
+																			</select>
+																		</div>
+																	</div>
+																	<div class="col-md-2">
+																		<div class="form-control-custom">
+																			<select class="form-control text-uppercase font-size-sm" name="frmVlrMax" id="frmVlrMax" >
+																				<option value="">Valor m&aacute;ximo</option>
+																				<option value="35000000">350,000.00</option>
+																				<option value="45000000">450,000.00</option>
+																				<option value="50000000">500,000.00</option>
+																				<option value="55000000">550,000.00</option>
+																				<option value="60000000">600,000.00</option>
+																				<option value="">Indiferente</option>
+																			</select>
+																		</div>
+																	</div>
+
+																	<div class="col-md-2">
+																		<div class="form-control-custom">
+																			<input type="text" class="form-control" placeholder="Localidade" name="frmPL" id="frmPL" title="Informe a localidade que deseja." maxlength="100" required name=frmPesquisaLocalizacao /><br>
+																		</div>
+																	</div>
+
+																	<div class="col-md-2">
+																		<input type="submit" value="OK" class="btn btn-secondary btn-lg btn-block text-uppercase font-size-sm">
+																	</div>
+																	<div class="col-md-8">
+																		<a href="emconstrucao.html"><img src="img/ico_pesquisa_avancada.png" width="20" height="20">
+																			&nbsp;Pesquisa avan&ccedil;ada
+																		</a>
+																	</div>
+																</div>
+															</div>
+														</form>
+													</div>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+			<div role="main" class="main">
+
+				<section class="page-header page-header-light page-header-more-padding">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<h1>Lista de Im&oacute;veis<span>Entre abaixo &oacute;timas op&ccedil;&otilde;es para Comprar ou Alugar.</h1>
+								<ul class="breadcrumb breadcrumb-valign-mid">
+									<li><a href="index.html">Home</a></li>
+									<li class="active">Im&oacute;veis</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</section>
+
+				<div class="container">
+					<div class="row mb-lg">
+						<ul class="properties-listing sort-destination p-none">
+							<li class='col-md-4 col-sm-6 col-xs-12 p-md isotope-item'>	<div class='listing-item'>		<a href='descricao_imovel681a.html?id=1' class='text-decoration-none'>		<span class='thumb-info thumb-info-lighten'>			<span class='thumb-info-wrapper m-none'>				<img src='img/foto_imoveis/foto_anuncio1_1.jpg' class='img-responsive'>				<span class='thumb-info-listing-type background-color-secondary text-uppercase text-color-light font-weight-semibold p-xs pl-md pr-md'>Alugar				</span>				<span class='thumb-info-price background-color-primary text-color-light text-lg p-sm pl-md pr-md'>					R$ 200,00					<i class='fa fa-caret-right text-color-secondary pull-right'></i>				</span>				<span class='custom-thumb-info-title b-normal p-lg'>					<span class='thumb-info-inner text-md'>São Paulo | Parque Jandaia</span>						<ul class='accommodations text-uppercase font-weight-bold p-none text-sm'>							<li>								<span class='accomodation-title'>									Suite:								</span>								<span class='accomodation-value custom-color-1'>									1								</span>							</li>							<li>								<span class='accomodation-title'>									Dor.:								</span>								<span class='accomodation-value custom-color-1'>									2								</span>							</li>							<li>								<span class='accomodation-title'>									Area:								</span>								<span class='accomodation-value custom-color-1'>									125m²								</span>							</li>						</ul>				</span>			</span>		</a>	</div></li><li class='col-md-4 col-sm-6 col-xs-12 p-md isotope-item'>	<div class='listing-item'>		<a href='descricao_imoveld61c.html?id=5' class='text-decoration-none'>		<span class='thumb-info thumb-info-lighten'>			<span class='thumb-info-wrapper m-none'>				<img src='img/foto_imoveis/foto_anuncio1_5.jpg' class='img-responsive'>				<span class='thumb-info-listing-type background-color-secondary text-uppercase text-color-light font-weight-semibold p-xs pl-md pr-md'>Alugar				</span>				<span class='thumb-info-price background-color-primary text-color-light text-lg p-sm pl-md pr-md'>					R$ 1.000,00					<i class='fa fa-caret-right text-color-secondary pull-right'></i>				</span>				<span class='custom-thumb-info-title b-normal p-lg'>					<span class='thumb-info-inner text-md'>Barueri | Parque Jandaia</span>						<ul class='accommodations text-uppercase font-weight-bold p-none text-sm'>							<li>								<span class='accomodation-title'>									Suite:								</span>								<span class='accomodation-value custom-color-1'>									1								</span>							</li>							<li>								<span class='accomodation-title'>									Dor.:								</span>								<span class='accomodation-value custom-color-1'>									2								</span>							</li>							<li>								<span class='accomodation-title'>									Area:								</span>								<span class='accomodation-value custom-color-1'>									125m²								</span>							</li>						</ul>				</span>			</span>		</a>	</div></li><li class='col-md-4 col-sm-6 col-xs-12 p-md isotope-item'>	<div class='listing-item'>		<a href='descricao_imovelf41b.html?id=10' class='text-decoration-none'>		<span class='thumb-info thumb-info-lighten'>			<span class='thumb-info-wrapper m-none'>				<img src='img/foto_imoveis/sem_foto.jpg' class='img-responsive'>				<span class='thumb-info-listing-type background-color-secondary text-uppercase text-color-light font-weight-semibold p-xs pl-md pr-md'>Alugar				</span>				<span class='thumb-info-price background-color-primary text-color-light text-lg p-sm pl-md pr-md'>					R$ 1.500,00					<i class='fa fa-caret-right text-color-secondary pull-right'></i>				</span>				<span class='custom-thumb-info-title b-normal p-lg'>					<span class='thumb-info-inner text-md'>Carapicuíba | Parque Imperial</span>						<ul class='accommodations text-uppercase font-weight-bold p-none text-sm'>							<li>								<span class='accomodation-title'>									Suite:								</span>								<span class='accomodation-value custom-color-1'>									1								</span>							</li>							<li>								<span class='accomodation-title'>									Dor.:								</span>								<span class='accomodation-value custom-color-1'>									2								</span>							</li>							<li>								<span class='accomodation-title'>									Area:								</span>								<span class='accomodation-value custom-color-1'>									125m²								</span>							</li>						</ul>				</span>			</span>		</a>	</div></li><li class='col-md-4 col-sm-6 col-xs-12 p-md isotope-item'>	<div class='listing-item'>		<a href='descricao_imovel0055.html?id=11' class='text-decoration-none'>		<span class='thumb-info thumb-info-lighten'>			<span class='thumb-info-wrapper m-none'>				<img src='img/foto_imoveis/sem_foto.jpg' class='img-responsive'>				<span class='thumb-info-listing-type background-color-secondary text-uppercase text-color-light font-weight-semibold p-xs pl-md pr-md'>Alugar				</span>				<span class='thumb-info-price background-color-primary text-color-light text-lg p-sm pl-md pr-md'>					R$ 1.000,00					<i class='fa fa-caret-right text-color-secondary pull-right'></i>				</span>				<span class='custom-thumb-info-title b-normal p-lg'>					<span class='thumb-info-inner text-md'>Cotia | Parque Jandaia</span>						<ul class='accommodations text-uppercase font-weight-bold p-none text-sm'>							<li>								<span class='accomodation-title'>									Suite:								</span>								<span class='accomodation-value custom-color-1'>									1								</span>							</li>							<li>								<span class='accomodation-title'>									Dor.:								</span>								<span class='accomodation-value custom-color-1'>									2								</span>							</li>							<li>								<span class='accomodation-title'>									Area:								</span>								<span class='accomodation-value custom-color-1'>									125m²								</span>							</li>						</ul>				</span>			</span>		</a>	</div></li><li class='col-md-4 col-sm-6 col-xs-12 p-md isotope-item'>	<div class='listing-item'>		<a href='descricao_imovel87f1.html?id=14' class='text-decoration-none'>		<span class='thumb-info thumb-info-lighten'>			<span class='thumb-info-wrapper m-none'>				<img src='img/foto_imoveis/foto_anuncio1_14.jpg' class='img-responsive'>				<span class='thumb-info-listing-type background-color-secondary text-uppercase text-color-light font-weight-semibold p-xs pl-md pr-md'>Alugar				</span>				<span class='thumb-info-price background-color-primary text-color-light text-lg p-sm pl-md pr-md'>					R$ 900,00					<i class='fa fa-caret-right text-color-secondary pull-right'></i>				</span>				<span class='custom-thumb-info-title b-normal p-lg'>					<span class='thumb-info-inner text-md'>Osasco | Parque Jandaia</span>						<ul class='accommodations text-uppercase font-weight-bold p-none text-sm'>							<li>								<span class='accomodation-title'>									Suite:								</span>								<span class='accomodation-value custom-color-1'>									1								</span>							</li>							<li>								<span class='accomodation-title'>									Dor.:								</span>								<span class='accomodation-value custom-color-1'>									2								</span>							</li>							<li>								<span class='accomodation-title'>									Area:								</span>								<span class='accomodation-value custom-color-1'>									125m²								</span>							</li>						</ul>				</span>			</span>		</a>	</div></li><li class='col-md-4 col-sm-6 col-xs-12 p-md isotope-item'>	<div class='listing-item'>		<a href='descricao_imovele371.html?id=18' class='text-decoration-none'>		<span class='thumb-info thumb-info-lighten'>			<span class='thumb-info-wrapper m-none'>				<img src='img/foto_imoveis/sem_foto.jpg' class='img-responsive'>				<span class='thumb-info-listing-type background-color-secondary text-uppercase text-color-light font-weight-semibold p-xs pl-md pr-md'>Alugar				</span>				<span class='thumb-info-price background-color-primary text-color-light text-lg p-sm pl-md pr-md'>					R$ 600,00					<i class='fa fa-caret-right text-color-secondary pull-right'></i>				</span>				<span class='custom-thumb-info-title b-normal p-lg'>					<span class='thumb-info-inner text-md'>Osasco | São Paulo</span>						<ul class='accommodations text-uppercase font-weight-bold p-none text-sm'>							<li>								<span class='accomodation-title'>									Suite:								</span>								<span class='accomodation-value custom-color-1'>									1								</span>							</li>							<li>								<span class='accomodation-title'>									Dor.:								</span>								<span class='accomodation-value custom-color-1'>									2								</span>							</li>							<li>								<span class='accomodation-title'>									Area:								</span>								<span class='accomodation-value custom-color-1'>									125m²								</span>							</li>						</ul>				</span>			</span>		</a>	</div></li><li class='col-md-4 col-sm-6 col-xs-12 p-md isotope-item'>	<div class='listing-item'>		<a href='descricao_imovel0b30.html?id=2' class='text-decoration-none'>		<span class='thumb-info thumb-info-lighten'>			<span class='thumb-info-wrapper m-none'>				<img src='img/foto_imoveis/foto_anuncio1_2.jpg' class='img-responsive'>				<span class='thumb-info-listing-type background-color-secondary text-uppercase text-color-light font-weight-semibold p-xs pl-md pr-md'>Comprar				</span>				<span class='thumb-info-price background-color-primary text-color-light text-lg p-sm pl-md pr-md'>					R$ 80.000,00					<i class='fa fa-caret-right text-color-secondary pull-right'></i>				</span>				<span class='custom-thumb-info-title b-normal p-lg'>					<span class='thumb-info-inner text-md'>Barueri | Parque Planalto</span>						<ul class='accommodations text-uppercase font-weight-bold p-none text-sm'>							<li>								<span class='accomodation-title'>									Suite:								</span>								<span class='accomodation-value custom-color-1'>									1								</span>							</li>							<li>								<span class='accomodation-title'>									Dor.:								</span>								<span class='accomodation-value custom-color-1'>									2								</span>							</li>							<li>								<span class='accomodation-title'>									Area:								</span>								<span class='accomodation-value custom-color-1'>									125m²								</span>							</li>						</ul>				</span>			</span>		</a>	</div></li><li class='col-md-4 col-sm-6 col-xs-12 p-md isotope-item'>	<div class='listing-item'>		<a href='descricao_imovel8803.html?id=7' class='text-decoration-none'>		<span class='thumb-info thumb-info-lighten'>			<span class='thumb-info-wrapper m-none'>				<img src='img/foto_imoveis/sem_foto.jpg' class='img-responsive'>				<span class='thumb-info-listing-type background-color-secondary text-uppercase text-color-light font-weight-semibold p-xs pl-md pr-md'>Comprar				</span>				<span class='thumb-info-price background-color-primary text-color-light text-lg p-sm pl-md pr-md'>					R$ 80.000,00					<i class='fa fa-caret-right text-color-secondary pull-right'></i>				</span>				<span class='custom-thumb-info-title b-normal p-lg'>					<span class='thumb-info-inner text-md'>Carapicuíba | JD Veloso</span>						<ul class='accommodations text-uppercase font-weight-bold p-none text-sm'>							<li>								<span class='accomodation-title'>									Suite:								</span>								<span class='accomodation-value custom-color-1'>									1								</span>							</li>							<li>								<span class='accomodation-title'>									Dor.:								</span>								<span class='accomodation-value custom-color-1'>									2								</span>							</li>							<li>								<span class='accomodation-title'>									Area:								</span>								<span class='accomodation-value custom-color-1'>									125m²								</span>							</li>						</ul>				</span>			</span>		</a>	</div></li><li class='col-md-4 col-sm-6 col-xs-12 p-md isotope-item'>	<div class='listing-item'>		<a href='descricao_imovel5255.html?id=9' class='text-decoration-none'>		<span class='thumb-info thumb-info-lighten'>			<span class='thumb-info-wrapper m-none'>				<img src='img/foto_imoveis/foto_anuncio1_9.jpg' class='img-responsive'>				<span class='thumb-info-listing-type background-color-secondary text-uppercase text-color-light font-weight-semibold p-xs pl-md pr-md'>Comprar				</span>				<span class='thumb-info-price background-color-primary text-color-light text-lg p-sm pl-md pr-md'>					R$ 80.000,00					<i class='fa fa-caret-right text-color-secondary pull-right'></i>				</span>				<span class='custom-thumb-info-title b-normal p-lg'>					<span class='thumb-info-inner text-md'>São Paulo | Parque Jandaia</span>						<ul class='accommodations text-uppercase font-weight-bold p-none text-sm'>							<li>								<span class='accomodation-title'>									Suite:								</span>								<span class='accomodation-value custom-color-1'>									1								</span>							</li>							<li>								<span class='accomodation-title'>									Dor.:								</span>								<span class='accomodation-value custom-color-1'>									2								</span>							</li>							<li>								<span class='accomodation-title'>									Area:								</span>								<span class='accomodation-value custom-color-1'>									125m²								</span>							</li>						</ul>				</span>			</span>		</a>	</div></li><li class='col-md-4 col-sm-6 col-xs-12 p-md isotope-item'>	<div class='listing-item'>		<a href='descricao_imovel4ef9.html?id=12' class='text-decoration-none'>		<span class='thumb-info thumb-info-lighten'>			<span class='thumb-info-wrapper m-none'>				<img src='img/foto_imoveis/foto_anuncio1_12.jpg' class='img-responsive'>				<span class='thumb-info-listing-type background-color-secondary text-uppercase text-color-light font-weight-semibold p-xs pl-md pr-md'>Comprar				</span>				<span class='thumb-info-price background-color-primary text-color-light text-lg p-sm pl-md pr-md'>					R$ 80.000,00					<i class='fa fa-caret-right text-color-secondary pull-right'></i>				</span>				<span class='custom-thumb-info-title b-normal p-lg'>					<span class='thumb-info-inner text-md'>Cotia | Parque Jandaia</span>						<ul class='accommodations text-uppercase font-weight-bold p-none text-sm'>							<li>								<span class='accomodation-title'>									Suite:								</span>								<span class='accomodation-value custom-color-1'>									1								</span>							</li>							<li>								<span class='accomodation-title'>									Dor.:								</span>								<span class='accomodation-value custom-color-1'>									2								</span>							</li>							<li>								<span class='accomodation-title'>									Area:								</span>								<span class='accomodation-value custom-color-1'>									125m²								</span>							</li>						</ul>				</span>			</span>		</a>	</div></li><li class='col-md-4 col-sm-6 col-xs-12 p-md isotope-item'>	<div class='listing-item'>		<a href='descricao_imovel6e03.html?id=13' class='text-decoration-none'>		<span class='thumb-info thumb-info-lighten'>			<span class='thumb-info-wrapper m-none'>				<img src='img/foto_imoveis/foto_anuncio1_13.jpg' class='img-responsive'>				<span class='thumb-info-listing-type background-color-secondary text-uppercase text-color-light font-weight-semibold p-xs pl-md pr-md'>Comprar				</span>				<span class='thumb-info-price background-color-primary text-color-light text-lg p-sm pl-md pr-md'>					R$ 80.000,00					<i class='fa fa-caret-right text-color-secondary pull-right'></i>				</span>				<span class='custom-thumb-info-title b-normal p-lg'>					<span class='thumb-info-inner text-md'>Carapicuíba | Centro</span>						<ul class='accommodations text-uppercase font-weight-bold p-none text-sm'>							<li>								<span class='accomodation-title'>									Suite:								</span>								<span class='accomodation-value custom-color-1'>									1								</span>							</li>							<li>								<span class='accomodation-title'>									Dor.:								</span>								<span class='accomodation-value custom-color-1'>									2								</span>							</li>							<li>								<span class='accomodation-title'>									Area:								</span>								<span class='accomodation-value custom-color-1'>									125m²								</span>							</li>						</ul>				</span>			</span>		</a>	</div></li><li class='col-md-4 col-sm-6 col-xs-12 p-md isotope-item'>	<div class='listing-item'>		<a href='descricao_imovel2728.html?id=16' class='text-decoration-none'>		<span class='thumb-info thumb-info-lighten'>			<span class='thumb-info-wrapper m-none'>				<img src='img/foto_imoveis/foto_anuncio1_16.jpg' class='img-responsive'>				<span class='thumb-info-listing-type background-color-secondary text-uppercase text-color-light font-weight-semibold p-xs pl-md pr-md'>Comprar				</span>				<span class='thumb-info-price background-color-primary text-color-light text-lg p-sm pl-md pr-md'>					R$ 80.000,00					<i class='fa fa-caret-right text-color-secondary pull-right'></i>				</span>				<span class='custom-thumb-info-title b-normal p-lg'>					<span class='thumb-info-inner text-md'>Carapicuíba | Santa Efigênia</span>						<ul class='accommodations text-uppercase font-weight-bold p-none text-sm'>							<li>								<span class='accomodation-title'>									Suite:								</span>								<span class='accomodation-value custom-color-1'>									1								</span>							</li>							<li>								<span class='accomodation-title'>									Dor.:								</span>								<span class='accomodation-value custom-color-1'>									2								</span>							</li>							<li>								<span class='accomodation-title'>									Area:								</span>								<span class='accomodation-value custom-color-1'>									125m²								</span>							</li>						</ul>				</span>			</span>		</a>	</div></li><li class='col-md-4 col-sm-6 col-xs-12 p-md isotope-item'>	<div class='listing-item'>		<a href='descricao_imovelc3c9.html?id=8' class='text-decoration-none'>		<span class='thumb-info thumb-info-lighten'>			<span class='thumb-info-wrapper m-none'>				<img src='img/foto_imoveis/foto_anuncio1_8.jpg' class='img-responsive'>				<span class='thumb-info-listing-type background-color-secondary text-uppercase text-color-light font-weight-semibold p-xs pl-md pr-md'>Alugar				</span>				<span class='thumb-info-price background-color-primary text-color-light text-lg p-sm pl-md pr-md'>					R$ 1.500,00					<i class='fa fa-caret-right text-color-secondary pull-right'></i>				</span>				<span class='custom-thumb-info-title b-normal p-lg'>					<span class='thumb-info-inner text-md'>Carapicuíba | Parque Jandaia</span>						<ul class='accommodations text-uppercase font-weight-bold p-none text-sm'>							<li>								<span class='accomodation-title'>									Suite:								</span>								<span class='accomodation-value custom-color-1'>									1								</span>							</li>							<li>								<span class='accomodation-title'>									Dor.:								</span>								<span class='accomodation-value custom-color-1'>									2								</span>							</li>							<li>								<span class='accomodation-title'>									Area:								</span>								<span class='accomodation-value custom-color-1'>									125m²								</span>							</li>						</ul>				</span>			</span>		</a>	</div></li><li class='col-md-4 col-sm-6 col-xs-12 p-md isotope-item'>	<div class='listing-item'>		<a href='descricao_imovel7429.html?id=15' class='text-decoration-none'>		<span class='thumb-info thumb-info-lighten'>			<span class='thumb-info-wrapper m-none'>				<img src='img/foto_imoveis/sem_foto.jpg' class='img-responsive'>				<span class='thumb-info-listing-type background-color-secondary text-uppercase text-color-light font-weight-semibold p-xs pl-md pr-md'>Alugar				</span>				<span class='thumb-info-price background-color-primary text-color-light text-lg p-sm pl-md pr-md'>					R$ 2.500,00					<i class='fa fa-caret-right text-color-secondary pull-right'></i>				</span>				<span class='custom-thumb-info-title b-normal p-lg'>					<span class='thumb-info-inner text-md'>Carapicuíba | Parque Jandaia</span>						<ul class='accommodations text-uppercase font-weight-bold p-none text-sm'>							<li>								<span class='accomodation-title'>									Suite:								</span>								<span class='accomodation-value custom-color-1'>									1								</span>							</li>							<li>								<span class='accomodation-title'>									Dor.:								</span>								<span class='accomodation-value custom-color-1'>									2								</span>							</li>							<li>								<span class='accomodation-title'>									Area:								</span>								<span class='accomodation-value custom-color-1'>									125m²								</span>							</li>						</ul>				</span>			</span>		</a>	</div></li><li class='col-md-4 col-sm-6 col-xs-12 p-md isotope-item'>	<div class='listing-item'>		<a href='descricao_imoveld708.html?id=3' class='text-decoration-none'>		<span class='thumb-info thumb-info-lighten'>			<span class='thumb-info-wrapper m-none'>				<img src='img/foto_imoveis/sem_foto.jpg' class='img-responsive'>				<span class='thumb-info-listing-type background-color-secondary text-uppercase text-color-light font-weight-semibold p-xs pl-md pr-md'>Comprar				</span>				<span class='thumb-info-price background-color-primary text-color-light text-lg p-sm pl-md pr-md'>					R$ 80.000,00					<i class='fa fa-caret-right text-color-secondary pull-right'></i>				</span>				<span class='custom-thumb-info-title b-normal p-lg'>					<span class='thumb-info-inner text-md'>Carapicuíba | Centro</span>						<ul class='accommodations text-uppercase font-weight-bold p-none text-sm'>							<li>								<span class='accomodation-title'>									Suite:								</span>								<span class='accomodation-value custom-color-1'>									1								</span>							</li>							<li>								<span class='accomodation-title'>									Dor.:								</span>								<span class='accomodation-value custom-color-1'>									2								</span>							</li>							<li>								<span class='accomodation-title'>									Area:								</span>								<span class='accomodation-value custom-color-1'>									125m²								</span>							</li>						</ul>				</span>			</span>		</a>	</div></li>
+						</ul>
+					</div>
+
+					<div class="row mt-lg mb-xlg">
+						<div class="col-md-12 center">
+							<ul class="pagination">
+								<li><a href='lista_imoveis7949.html?flttp=&amp;pagina=1'><i class='fa fa-chevron-left'></i></a></li><li class='active'><a href='lista_imoveis3977.html?pagina=1'>1</a></li><li><a href='lista_imoveis7949.html?flttp=&amp;pagina=1'><i class='fa fa-chevron-right'></i></a></li>							</ul>
+						</div>
+					</div>
+
+				</div>
+				<footer id="footer" class="m-none custom-background-color-1">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<img src="img/logos/logo_focoimovel_rodape.png" width="40" height="40">&nbsp;&nbsp;<a href="index.html" class="h4 class="mb-md">Foco Im&oacute;vel</a>
+				<p class="custom-color-2">
+					Osasco - S&atilde;o Paulo<br>
+					Telefone/WhatsApp: 11 96977-5700<br> 
+					E-mail: <a class="text-color-secondary" href="mailto:mail@example.com">focoimovel@contato.com.br</a>
+				</p>
+			</div>
+			<div class="col-md-2">
+				<a href="lista_imoveis.html" class="h4 class="mb-md">Im&oacute;veis</a>
+				<nav class="nav-footer">
+					<ul class="custom-list-style-1 pl-lg">
+						<li>
+							<a href="lista_imoveisc1b5.html?flttp=Comprar" class="custom-color-2 text-decoration-none">
+								 Venda
+							</a>
+						</li>
+						<li>
+							<a href="lista_imoveis804e.html?flttp=Alugar" class="custom-color-2 text-decoration-none">
+								Alugar
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+			<div class="col-md-2">
+				<h4 class="mb-md">Sobre</h4>
+				<nav class="nav-footer">
+					<ul class="custom-list-style-1 pl-lg">
+						<li>
+							<a href="emconstrucao.html" class="custom-color-2 text-decoration-none">
+								Nossos corretores
+							</a>
+						</li>
+						<li>
+							<a href="emconstrucao.html" class="custom-color-2 text-decoration-none">
+								Sobre a empresa
+							</a>
+						</li>
+						<li>
+							<a href="info_contato.html" class="custom-color-2 text-decoration-none">
+								Contato
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+			<div class="col-md-2">
+				<h4 class="mb-md">An&uacute;ncio</h4>
+				<nav class="nav-footer">
+					<ul class="custom-list-style-1 pl-lg">
+						<li>
+							<a href="emconstrucao.html" class="custom-color-2 text-decoration-none">
+								<img src="img/ico_anunciar.png" width="40" height="40">&nbsp;Anunciar
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+		</div>
+	</div>
+	<div class="footer-copyright custom-background-color-1 pb-none">
+		<div class="container">
+			<div class="row pt-md pb-md">
+				<div class="col-md-12 left m-none">
+					<p>&copy; Copyright 2017. Todos os Direitos Reservados. - Desenvolvido por <a href="#">AVLSOFT</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+			</div>
+		</div>
+
+			<!-- Vendor -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/jquery.appear/jquery.appear.min.js"></script>
+	<script src="vendor/jquery.easing/jquery.easing.min.js"></script>
+	<script src="vendor/jquery-cookie/jquery-cookie.min.js"></script>
+	<script src="master/style-switcher/style.switcher.js" id="styleSwitcherScript" data-base-path="" data-skin-src="master/less/skin-real-estate.less"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/common/common.min.js"></script>
+	<script src="vendor/jquery.validation/jquery.validation.min.js"></script>
+	<script src="vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+	<script src="vendor/jquery.gmap/jquery.gmap.min.js"></script>
+	<script src="vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+	<script src="vendor/isotope/jquery.isotope.min.js"></script>
+	<script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+	<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+	<script src="vendor/vide/vide.min.js"></script>
+	
+	<!-- Theme Base, Components and Settings -->
+	<script src="js/theme.js"></script>
+	
+	<!-- Current Page Vendor and Views -->
+	<script src="vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>		
+	<script src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+	
+	<!-- Current Page Vendor and Views -->
+	<script src="js/views/view.contact.js"></script>
+	
+	<!-- Demo -->
+	<script src="js/demos/demo-real-estate.js"></script>
+	
+	<!-- Theme Custom -->
+	<script src="js/custom.js"></script>
+	
+	<!-- Theme Initialization Files -->
+	<script src="js/theme.init.js"></script>	</body>
+
+<!-- Mirrored from www.focoimovel.com.br/lista_imoveis.php by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Sep 2017 01:11:38 GMT -->
+</html>
