@@ -87,7 +87,9 @@
 									<i class="fa fa-refresh" aria-hidden="true"></i>
 								</a>
 								<a data-placement="top" title="Informações" 
-									class="js-tooltip  btn  btn-link  btn-xs">
+									class="js-tooltip  btn  btn-link  btn-xs  js-button-info"
+									data:url="@{/execucao/{idProcessamento}(idProcessamento=${processo.idProcessamento})}"
+									data:codigo="@{{idProcessamento}(idProcessamento=${processo.idProcessamento})}">
 									<i class="fa fa-info-circle" aria-hidden="true"></i>
 								</a>
 								<a data-placement="top" title="Abortar Processamento" 
@@ -112,6 +114,24 @@
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+		      </div>
+		      <div class="modal-body">		        
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+		<!-- Modal de Informações -->
+		<div class="modal fade  js-show-modal-informacoes" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+		  <!-- modal-sm -->
+		  <div class="modal-dialog  modal-lg" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title  js-title-info">Informações</h4>
 		      </div>
 		      <div class="modal-body">		        
 		      </div>

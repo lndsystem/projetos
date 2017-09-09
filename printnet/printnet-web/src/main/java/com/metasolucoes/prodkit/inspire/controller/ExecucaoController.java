@@ -2,6 +2,7 @@ package com.metasolucoes.prodkit.inspire.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import com.metasolucoes.prodkit.inspire.service.ExecucaoService;
 @RequestMapping("/execucao")
 public class ExecucaoController {
 
+	@Autowired
 	private ExecucaoService execucaoServiceImp;
 
 	@GetMapping(value = "/{idProcessamento}", consumes = MediaType.APPLICATION_JSON_VALUE)
