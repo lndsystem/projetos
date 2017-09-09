@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+	<body>
+		<footer id="footer" class="m-none custom-background-color-1" th:fragment="layout-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3">
+						<img th:src="@{/img/logos/logo_focoimovel_rodape.png}" width="40" height="40"></img>&nbsp;&nbsp;<a th:href="@{/}" class="h4  mb-md">Foco Imóvel</a>
+						<p class="custom-color-2">
+							Osasco - São Paulo<br/>
+							Telefone/WhatsApp: 11 96977-5700<br/> 
+							E-mail: <a class="text-color-secondary" href="mailto:focoimovel@contato.com.br">focoimovel@contato.com.br</a>
+						</p>
+					</div>
+					<div class="col-md-2">
+						<a th:href="@{/listaimoveis}" class="h4  mb-md">Imóveis</a>
+						<nav class="nav-footer">
+							<ul class="custom-list-style-1 pl-lg">
+								<li>
+									<a th:href="@{/listaimoveis}" class="custom-color-2 text-decoration-none">
+										 Venda
+									</a>
+								</li>
+								<li>
+									<a th:href="@{/listaimoveis}" class="custom-color-2 text-decoration-none">
+										Alugar
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<div class="col-md-2">
+						<h4 class="mb-md">Sobre</h4>
+						<nav class="nav-footer">
+							<ul class="custom-list-style-1 pl-lg">
+								<li>
+									<a th:href="@{/emconstrucao}" class="custom-color-2 text-decoration-none">
+										Nossos corretores
+									</a>
+								</li>
+								<li>
+									<a th:href="@{/emconstrucao}" class="custom-color-2 text-decoration-none">
+										Sobre a empresa
+									</a>
+								</li>
+								<li>
+									<a th:href="@{/contato}" class="custom-color-2 text-decoration-none">
+										Contato
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<div class="col-md-2">
+						<h4 class="mb-md">Anúncio</h4>
+						<nav class="nav-footer">
+							<ul class="custom-list-style-1 pl-lg">
+								<li>
+									<a th:href="@{/login}" class="custom-color-2 text-decoration-none">
+										<img th:src="@{/img/ico_anunciar.png}" width="40" height="40"></img>&nbsp;Anunciar
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright custom-background-color-1 pb-none">
+				<div class="container">
+					<div class="row pt-md pb-md">
+						<div class="col-md-12 left m-none">
+							<p>&copy; Copyright 2017. Todos os Direitos Reservados. - Desenvolvido por <a href="#">AVLSOFT</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

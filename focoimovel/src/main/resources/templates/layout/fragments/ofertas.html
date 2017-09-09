@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<div class="col-md-3" th:fragment="layout-ofertas">
+			<aside class="sidebar">
+				<!-- BEGIN - OFERTAS -->
+				<th:strong>
+					<h2 class="font-weight-normal mb-lg">
+						Ofertas especiais
+					</h2>
+					<div class="special-offer-item center text-color-light">
+						<a href="demo-real-estate-properties.html" class="text-decoration-none">
+							<span class="special-offer-wrapper">
+								<img th:src="@{/img/demos/real-estate/offers/special-offer-1.jpg}" class="img-responsive" alt=""></img>
+								<span class="special-offer-infos text-color-light">
+									<span class="special-offer-description font-weight-light text-lg">
+										Op&ccedil;&otilde;es que cabem<br/>no seu bolso
+									</span>
+									<br/>
+									<span class="special-offer-title font-weight-bold text-uppercase text-md pb-xlg mb-md">
+										apartir de: R$ 100.000,00
+									</span>
+									<button class="btn btn-secondary text-uppercase p-sm pl-xlg pr-xlg">veja +</button>
+								</span>
+							</span>
+						</a>
+					</div>
+					<div class="special-offer-item center text-color-light">
+						<a href="demo-real-estate-properties.html" class="text-decoration-none">
+							<span class="special-offer-wrapper">
+								<img th:src="@{/img/demos/real-estate/offers/special-offer-2.jpg}" class="img-responsive" alt=""></img>
+								<span class="special-offer-infos text-color-light pt-lg">
+									<span class="special-offer-description font-weight-light text-lg">
+										Exclusive Comdominium
+									</span>
+									<span class="special-offer-title font-weight-bold text-uppercase text-md mb-md">
+										Miami Beach
+									</span>
+									<button class="btn btn-secondary text-uppercase p-sm pl-xlg pr-xlg">veja +</button>
+								</span>
+							</span>
+						</a>
+					</div>
+				</th:strong>
+				<!-- END - OFERTAS -->
+				
+				<!-- BEGIN - CORRETORES -->
+				<div class="agents text-color-light center">
+					<h4 class="text-light pt-xl m-none">Corretore(s)</h4>
+					<div class="owl-carousel owl-theme nav-bottom rounded-nav pl-xs pr-xs pt-md m-none" data-plugin-options="{'items': 1, 'loop': false, 'dots': false, 'nav': true}">	
+						<div class='pr-sm pl-sm'>	
+							<a href='perfil_user0b30.html?id=2' class='text-decoration-none'>		
+								<span class='agent-thumb'>			
+									<img class='img-responsive img-circle' th:src='@{/img/perfil/sem_perfil.png}' alt=""></img>		
+								</span>		
+								<span class='agent-infos text-light pt-md'>			
+									<strong class='text-uppercase font-weight-bold'>Beto Lima</strong>			
+									<span class='font-weight-light'></span>			
+									<span class='font-weight-light'>aa@aa.com</span>		
+								</span>	
+							</a>
+						</div>
+						<div class='pr-sm pl-sm'>	
+							<a href='perfil_user1e85.html?id=54' class='text-decoration-none'>		
+								<span class='agent-thumb'>			
+									<img class='img-responsive img-circle' th:src='@{/img/perfil/54_26072017_211935.jpg}' alt="" />
+								</span>		
+								<span class='agent-infos text-light pt-md'>			
+									<strong class='text-uppercase font-weight-bold'>3</strong>			
+									<span class='font-weight-light'></span>			
+									<span class='font-weight-light'>alberto.vlima@gmail.com</span>		
+								</span>	
+							</a>
+						</div>
+					</div>
+				</div>
+				<!-- END CORRETORES -->
+				
+				<!-- BEGIN - FORMULARIO -->
+				<div class="newsletter box-shadow-custom p-xlg center">
+					<i class="icon-envelope-letter icons"></i>
+					<h4 class="mt-xs mb-xs">
+						Newsletter
+					</h4>
+					<p>
+						Assine e seja o primeiro a conhecer nossas melhores ofertas.
+					</p>
+	
+					<div class="alert alert-success hidden" id="newsletterSuccess">
+						<strong>Success!</strong> You've been added to our email list.
+					</div>
+	
+					<div class="alert alert-danger hidden" id="newsletterError"></div>
+	
+					<form action="#" method="POST" id="Formnewsletter" name="Formnewsletter">
+						<input type="text" class="form-control" placeholder="Informe seu nome" name="newsletterNome" id="newsletterNome" title="Por favor, preencha o campo Nome"  /><br/>
+						<input type="text" class="form-control" placeholder="Informe sua cidade" name="newsletterCidade" id="newsletterCidade"  title="Por favor, preencha o campo Cidade"  /><br/>
+						<input type="email" class="form-control" placeholder="Informe seu e-mail" name="newsletterEmail" id="newsletterEmail" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+						<input type="submit" class="btn btn-default text-uppercase background-color-secondary pt-sm pr-xlg pb-sm pl-xlg mt-xlg text-light" />
+					</form>
+				</div>
+				<!-- END - FORMULARIO -->
+			</aside>
+		</div>
+	</body>
+</html>

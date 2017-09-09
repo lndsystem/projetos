@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:data="http://www.thymeleaf.org/extras/data-attribute">
+<head>
+	<!-- Basic -->
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+<title>Foco Imóvel - Aqui você encontra o melhor imovel da região.</title>
+
+<meta name="keywords" content="Foco imovel,Foco imóveis, venda de imóveis, aluguel, casa, apartamento, condominio, morar" />
+<meta name="description" content="Foco imovel"/>
+
+<!-- Favicon -->
+<link rel="shortcut icon" th:href="@{/img/favicon.ico}" type="image/x-icon" />
+<link rel="apple-touch-icon" th:href="@{/img/apple-touch-icon.png}" />
+
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+<!-- Vendor CSS -->
+<link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"/>
+<link rel="stylesheet" th:href="@{/vendor/font-awesome/css/font-awesome.min.css}"/>
+<link rel="stylesheet" th:href="@{/vendor/animate/animate.min.css}"/>
+<link rel="stylesheet" th:href="@{/vendor/simple-line-icons/css/simple-line-icons.min.css}"/>
+<link rel="stylesheet" th:href="@{/vendor/owl.carousel/assets/owl.carousel.min.css}"/>
+<link rel="stylesheet" th:href="@{/vendor/owl.carousel/assets/owl.theme.default.min.css}"/>
+<link rel="stylesheet" th:href="@{/vendor/magnific-popup/magnific-popup.min.css}"/>
+
+<!-- Theme CSS -->
+<link rel="stylesheet" th:href="@{/css/theme.css}"/>
+<link rel="stylesheet" th:href="@{/css/theme-elements.css}"/>
+<link rel="stylesheet" th:href="@{/css/theme-blog.css}"/>
+<link rel="stylesheet" th:href="@{/css/theme-shop.css}"/>
+
+<!-- Current Page CSS -->
+<link rel="stylesheet" th:href="@{/vendor/rs-plugin/css/settings.css}"/>
+<link rel="stylesheet" th:href="@{/vendor/rs-plugin/css/layers.css}"/>
+<link rel="stylesheet" th:href="@{/vendor/rs-plugin/css/navigation.css}"/>
+
+<!-- Skin CSS -->
+<link rel="stylesheet" th:href="@{/css/skins/skin-real-estate.css}"/>
+<script th:src="@{/master/style-switcher/style.switcher.localstorage.js}"></script>
+
+<!-- Demo CSS -->
+<link rel="stylesheet" th:href="@{/css/demos/demo-real-estate.css}"/>
+
+<!-- Theme Custom CSS -->
+<link rel="stylesheet" th:href="@{/css/custom.css}"/>
+
+<!-- Head Libs -->
+<script th:src="@{/vendor/modernizr/modernizr.min.js}"></script>
+
+<script type="text/javascript" th:src="@{../ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js}"></script>
+<script type="text/javascript">
+$(function () {
+  function removeCampo() {
+	$(".removerCampo").unbind("click");
+	$(".removerCampo").bind("click", function () {
+	   if($("tr.linhas").length > 1){
+		$(this).parent().parent().remove();
+	   }
+	});
+  }
+
+  $(".adicionarCampo").click(function () {
+	novoCampo = $("tr.linhas:first").clone();
+	novoCampo.find("input").val("");
+	novoCampo.insertAfter("tr.linhas:last");
+	removeCampo();
+  });
+});
+</script>
+
+</head>
+
+<!--	<body class="loading-overlay-showing" data-loading-overlay> -->
+<body>
+	<div class="body" >
+		<div th:replace="layout/fragments/header :: layout-header"></div>
+		<div role="main" class="main">
+			<section layout:fragment="conteudo">
+				
+			</section>
+		</div>
+		<div th:replace="layout/fragments/footer :: layout-footer"></div>		
+	</div>
+
+	<!-- Vendor -->
+	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+	<script th:src="@{/vendor/jquery.appear/jquery.appear.min.js}"></script>
+	<script th:src="@{/vendor/jquery.easing/jquery.easing.min.js}"></script>
+	<script th:src="@{/vendor/jquery-cookie/jquery-cookie.min.js}"></script>
+	<script th:src="@{/master/style-switcher/style.switcher.js}" id="styleSwitcherScript" data-base-path="" data-skin-src="master/less/skin-real-estate.less"></script>
+	<script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/vendor/common/common.min.js}"></script>
+	<script th:src="@{/vendor/jquery.validation/jquery.validation.min.js}"></script>
+	<script th:src="@{/vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.min.js}"></script>
+	<script th:src="@{/vendor/jquery.gmap/jquery.gmap.min.js}"></script>
+	<script th:src="@{/vendor/jquery.lazyload/jquery.lazyload.min.js}"></script>
+	<script th:src="@{/vendor/isotope/jquery.isotope.min.js}"></script>
+	<script th:src="@{/vendor/owl.carousel/owl.carousel.min.js}"></script>
+	<script th:src="@{/vendor/magnific-popup/jquery.magnific-popup.min.js}"></script>
+	<script th:src="@{/vendor/vide/vide.min.js}"></script>
+	
+	<!-- Theme Base, Components and Settings -->
+	<script th:src="@{/js/theme.js}"></script>
+	
+	<!-- Current Page Vendor and Views -->
+	<script th:src="@{/vendor/rs-plugin/js/jquery.themepunch.tools.min.js}"></script>		
+	<script th:src="@{/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js}"></script>
+	
+	<!-- Current Page Vendor and Views -->
+	<script th:src="@{/js/views/view.contact.js}"></script>
+	
+	<!-- Demo -->
+	<script th:src="@{/js/demos/demo-real-estate.js}"></script>
+	
+	<!-- Theme Custom -->
+	<script th:src="@{/js/custom.js}"></script>
+	
+	<!-- Theme Initialization Files -->
+	<script th:src="@{/js/theme.init.js}"></script>	
+	
+	<th:block th:fragment="javascript-extra"></th:block>
+</body>
+</html>
