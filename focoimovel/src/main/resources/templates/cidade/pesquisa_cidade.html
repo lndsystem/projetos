@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:data="http://www.thymeleaf.org/extras/data-attribute"
+	layout:decorate="~{layout/layout-padrao.html}">
+<body class="loading-overlay-showing" data-loading-overlay>
+	<div class="body">
+		<section layout:fragment="conteudo">
+			<div role="main" class="main">
+				<section class="page-header page-header-light page-header-more-padding">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<h1>Pesquisa cidade</h1>
+								<ul class="breadcrumb breadcrumb-valign-mid">
+									<li><a th:href="@{/}">Home</a></li>
+									<li><a th:href="@{/cidade}">Cidade</a></li>
+									<li class="active">Pesquisa</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+	
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8">
+							<!-- 
+							<h4 class="heading-primary mt-lg">Nossa equipe está sempre a sua disposição.</h4>
+							<p>Utilize o formulário abaixo para esclarecer dúvidas e enviar críticas ou sugestões.</p>
+							 -->
+							<form th:object=${cidadeFilter}>
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-6">
+											<label class="control-label" for="nomeCidade">Estado:</label>
+											<select class="form-control" th:field="*{estado}" name="estado" id="cidade">
+												<option value="">Selecione...</option>
+												<option th:each="estado : ${estados}" th:value="${estado.codigo}" th:text="${estado.nome}">Nome do estado</option>
+											</select>
+										</div>
+										<div class="col-md-6">
+											<label class="control-label" for="cidade">Cidade:</label>
+											<input type="text" placeholder="Informe o nome da Cidade" maxlength="100" class="form-control" name="cidade" id="cidade" th:field="*{nomeCidade}">
+										</div>
+									</div>
+								</div>	
+								<div class="row">
+									<div class="col-md-12">
+										<input type="submit" value="Pesquisar Cidade" class="btn btn-secondary mb-xlg" data-loading-text="Aguarde...">
+									</div>
+								</div>
+							</form>
+						</div>						
+					</div>
+					
+					<div class="row">
+						<div class="col-md-8">
+							<div class="table-responsive">
+								<table class="table  table-hover">
+									<thead>
+										<tr>
+											<th style="width: 50px" class="text-center">#</th>
+											<th style="width: 150px">Estado</th>
+											<th style="width: 150px">Cidade</th>
+											<th style="width: 50px"></th>										
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="cidade : ${cidades}">
+											<td class="text-center" th:text="${cidade.codigo}">1</td>
+											<td th:text="${cidade.estado.nome}">Estado</td>
+											<td th:text="${cidade.nome}">Cidade</td>
+											<td>
+												<a th:href="@{/cidade/edit/{codigo}(codigo=${cidade.codigo})}" title="Editar">
+													<span><i class="glyphicon glyphicon-pencil"></i></span>
+												</a>
+												<a th:href="@{/cidade/delete/{codigo}(codigo=${cidade.codigo})}" title="Remover">
+													<span><i class="glyphicon glyphicon-remove"></i></span>
+												</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</html>
