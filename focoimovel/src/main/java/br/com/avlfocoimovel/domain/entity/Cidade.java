@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -27,6 +28,7 @@ public class Cidade implements Serializable {
 	@Size(min = 2, message = "Nome da Cidade deve ter no mínimo 2 caracteres")
 	private String nome;
 
+	@NotNull(message = "O Estado é obrigatório")
 	@ManyToOne
 	@JoinColumn(name = "id_estado")
 	private Estado estado;

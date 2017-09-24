@@ -29,6 +29,28 @@
 						<nav class="header-nav-top langs pull-right mr-none">
 							<ul class="nav nav-pills">
 								<li>
+								<!-- 
+									<div class="dropdown">
+								    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Tutorials<span class="caret"></span></button>
+								    <ul class="dropdown-menu">
+								      <li><a tabindex="-1" href="#">HTML</a></li>
+								      <li><a tabindex="-1" href="#">CSS</a></li>
+								      <li class="dropdown-submenu">
+								        <a class="test" tabindex="-1" href="#">New dropdown <span class="caret"></span></a>
+								        <ul class="dropdown-menu">
+								          <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+								          <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+								          <li class="dropdown-submenu">
+								            <a class="test" href="#">Another dropdown <span class="caret"></span></a>
+								            <ul class="dropdown-menu">
+								              <li><a href="#">3rd level dropdown</a></li>
+								              <li><a href="#">3rd level dropdown</a></li>
+								            </ul>
+								          </li>
+								        </ul>
+								      </li>
+								    </ul>
+								  </div> -->
 									<a href="#" class="dropdown-menu-toggle" id="dropdownLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 										Login&nbsp;<img th:src="@{/img/ico_login.png}" width="20" height="20"></img>
 									</a>
@@ -42,7 +64,22 @@
 											<a th:href=@{/cadastro}>
 												<img th:src='@{/img/ico_cadastro.png}' width='20' height='20'></img>&nbsp;Cadastrar no portal
 											</a>
-										</li>
+										</li>										
+									
+										<li class="dropdown-submenu">
+								        <a class="test" tabindex="-1" href="#">Administração</span></a>
+								        <ul class="dropdown-menu">
+								          <!-- <li><a tabindex="-1" href="#">2nd level dropdown</a></li> -->
+								          <!--<li><a tabindex="-1" href="#">2nd level dropdown</a></li> -->
+								          <li class="dropdown-submenu">
+								            <a class="test" href="#">Cadastros</span></a>
+								            <ul class="dropdown-menu">
+								              <li><a th:href="@{/cidade}">Cidades</a></li>
+								              <!-- <li><a href="#">3rd level dropdown</a></li> -->
+								            </ul>
+								          </li>
+								        </ul>
+								      </li>
 									</ul>
 								</li>
 								<li class="blog">

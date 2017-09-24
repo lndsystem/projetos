@@ -15,8 +15,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.avlfocoimovel.domain.entity.Cidade;
 import br.com.avlfocoimovel.domain.filters.CidadeFilter;
-import br.com.avlfocoimovel.domain.repository.CidadeRepository;
+import br.com.avlfocoimovel.domain.service.CidadeService;
 import br.com.avlfocoimovel.domain.service.EstadoService;
+import br.com.avlfocoimovel.exception.CidadeJaCadastradaException;
 
 @Controller
 @RequestMapping("/cidade")
@@ -26,19 +27,19 @@ public class CidadeController {
 	private EstadoService estadoService;
 
 	@Autowired
-	private CidadeRepository cidadeRepository;
+	private CidadeService cidadeService;
 
 	@GetMapping
 	public ModelAndView pesquisa(CidadeFilter cidadeFilter) {
 		ModelAndView mv = new ModelAndView("cidade/pesquisa_cidade");
 		mv.addObject("estados", estadoService.pesquisarTodos());
-		mv.addObject("cidades", cidadeRepository.findAll());
+		mv.addObject("cidades", cidadeService.pesquisarTodos());
 		return mv;
 	}
 
 	@GetMapping("/delete/{codigo}")
 	public ModelAndView remover(@PathVariable("codigo") Long codigo) {
-		cidadeRepository.delete(codigo);
+		cidadeService.remover(codigo);
 		return new ModelAndView("redirect:/cidade");
 	}
 
@@ -49,13 +50,27 @@ public class CidadeController {
 		return mv;
 	}
 
+	@GetMapping("/edit/{codigo}")
+	public ModelAndView edit(@PathVariable("codigo") Long codigo) {
+		Cidade cidade = cidadeService.pesquisar(codigo);
+		ModelAndView mv = form(cidade);
+		mv.addObject(cidade);
+		return mv;
+	}
+
 	@PostMapping("/novo")
-	public ModelAndView salvar(@Valid Cidade cidade, Model model, BindingResult result, RedirectAttributes attributes) {
+	public ModelAndView salvar(@Valid Cidade cidade, BindingResult result, Model model, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
 			return form(cidade);
 		}
 
-		cidadeRepository.save(cidade);
+		try {
+			cidadeService.salvar(cidade);
+		} catch (CidadeJaCadastradaException e) {
+			result.rejectValue("nome", null, e.getMessage());
+			return form(cidade);
+		}
+
 		return new ModelAndView("redirect:/cidade");
 	}
 

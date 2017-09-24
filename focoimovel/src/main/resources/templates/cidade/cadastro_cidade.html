@@ -5,6 +5,8 @@
 	xmlns:data="http://www.thymeleaf.org/extras/data-attribute"
 	layout:decorate="~{layout/layout-padrao.html}">
 <body class="loading-overlay-showing" data-loading-overlay>
+
+<!-- http://bootboxjs.com/examples.html#bb-confirm-dialog -->
 	<div class="body">
 		<section layout:fragment="conteudo">
 			<div role="main" class="main">
@@ -12,11 +14,11 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12">
-								<h1>Pesquisa cidade</h1>
+								<h1>Cadastro cidade</h1>
 								<ul class="breadcrumb breadcrumb-valign-mid">
 									<li><a th:href="@{/}">Home</a></li>
 									<li><a th:href="@{/cidade}">Cidade</a></li>
-									<li class="active">Pesquisa</li>
+									<li class="active">Cadastro</li>
 								</ul>
 							</div>
 						</div>
@@ -24,19 +26,34 @@
 				</section>
 	
 				<div class="container">
-					<form th:object="${cidade}" method="post" th:action="@{/cidade/novo}">
+					<form th:action="@{/cidade/novo}" method="post" th:object="${cidade}">
+					
+					
+						<div class="alert alert-danger alert-dismissible col-md-8" role="alert" th:if="${#fields.hasErrors('*')}">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<div class="row">
+								<div class="col-md-8" th:each="err : ${#fields.errors('*')}">
+									<span th:text="${err}"></span>
+								</div>
+							</div>
+						</div>
+						<div >
+							</div>
+						
+					
+						<input type="hidden" th:field="*{codigo}">
 						<div class="row">
 							<div class="col-md-8">
-								<div class="form-group">
+								<div class="form-group" th:classappend="${#fields.hasErrors('estado')} ? has-error">
 									<label class="control-label">Estado:</label>
 									<select class="form-control" th:field="*{estado}">
 										<option value="">Selecione...</option>
 										<option th:each="estado : ${estados}" th:value="${estado.codigo}" th:text="${estado.nome}">Estado</option>
 									</select>
 								</div>	
-								<div class="form-group">
+								<div class="form-group" th:classappend="${#fields.hasErrors('nome')} ? has-error">
 									<label class="control-label">Cidade:</label>
-									<input class="form-control" type="text" th:filed="*{nome}"/>
+									<input class="form-control" type="text" th:field="*{nome}"/>
 								</div>
 							</div>
 						</div>

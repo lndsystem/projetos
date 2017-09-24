@@ -123,6 +123,18 @@ $(function () {
 	
 	<!-- Theme Initialization Files -->
 	<script th:src="@{/js/theme.init.js}"></script>	
+	<script th:src="@{/js/vendor/bootbox.min.js}"></script>
+	
+	<!-- Função SubMenu -->
+	<script>
+		$(document).ready(function(){
+		  $('.dropdown-submenu a.test').on("click", function(e){
+		    $(this).next('ul').toggle();
+		    e.stopPropagation();
+		    e.preventDefault();
+		  });
+		});
+	</script>
 	
 	<th:block th:fragment="javascript-extra"></th:block>
 </body>
