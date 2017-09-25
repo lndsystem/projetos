@@ -3,15 +3,17 @@ package br.com.avlfocoimovel.domain.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
@@ -42,8 +44,13 @@ public class Imovel implements Serializable {
 	@Embedded
 	private InformacoesImovel informacoesImoveis;
 
-	@Transient
-	private List<Integer> checks;
+	// @Transient
+	// private List<Integer> checks;
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "imovel_diferenciais", joinColumns = {
+			@JoinColumn(name = "codigo_imovel") }, inverseJoinColumns = { @JoinColumn(name = "codigo_diferenciais") })
+	private List<Diferenciais> diferenciais;
 
 	private boolean termos;
 
@@ -113,13 +120,13 @@ public class Imovel implements Serializable {
 		return result;
 	}
 
-	public List<Integer> getChecks() {
-		return checks;
-	}
-
-	public void setChecks(List<Integer> checks) {
-		this.checks = checks;
-	}
+	// public List<Integer> getChecks() {
+	// return checks;
+	// }
+	//
+	// public void setChecks(List<Integer> checks) {
+	// this.checks = checks;
+	// }
 
 	@Override
 	public boolean equals(Object obj) {
@@ -136,6 +143,14 @@ public class Imovel implements Serializable {
 		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
+	}
+
+	public List<Diferenciais> getDiferenciais() {
+		return diferenciais;
+	}
+
+	public void setDiferenciais(List<Diferenciais> diferenciais) {
+		this.diferenciais = diferenciais;
 	}
 
 	@Override

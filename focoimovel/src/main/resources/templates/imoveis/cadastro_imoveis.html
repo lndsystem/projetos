@@ -102,12 +102,22 @@
 									</select>
 								</div>
 
+								
+								<div class="col-md-5" th:classappend="${#fields.hasErrors('endereco.cidade')} ? has-error">
+									<label class="control-label" for="cidade">* Cidade:</label>
+									<select class="form-control" id="cidade" th:field="*{endereco.cidade}">
+										<option value="">Selecione...</option>
+										<option th:each="cidade : ${cidades}" th:value="${cidade.codigo}" th:text="${cidade.nome}">Cidade</option>
+									</select>
+								</div>
+								<!-- 
 								<div class="col-md-5" th:classappend="${#fields.hasErrors('endereco.cidade')} ? has-error">
 									<label class="control-label" for="cidade">* Cidade:</label>
 									<select class="form-control" id="cidade" disabled="disabled" th:field="*{endereco.cidade}">
 										<option value="">Selecione...</option>
 									</select>
 								</div>
+								-->
 							</div>
 						</div>
 						<hr>
@@ -179,9 +189,9 @@
 
 						<div class='row'>
 							<div class='form-group col-md-10'>
-								<div class="col-md-3" th:each="diferencial : ${diferenciais}">
+								<div class="col-md-3" th:each="diferencial : ${listaDiferenciais}">
 									<label>
-										<input type="checkbox" name="checks" th:value="${diferencial.codigo}" th:field="*{checks}"/>&nbsp;<span th:text="${diferencial.descricao}"></span>
+										<input type="checkbox" name="checks" th:value="${diferencial.codigo}" th:field="*{diferenciais}"/>&nbsp;<span th:text="${diferencial.descricao}"></span>
 									</label>
 								</div>
 							</div>

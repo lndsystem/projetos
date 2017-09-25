@@ -15,7 +15,7 @@ public class Diferenciais {
 	private Long codigo;
 
 	private String descricao;
-
+	
 	public Long getCodigo() {
 		return codigo;
 	}
