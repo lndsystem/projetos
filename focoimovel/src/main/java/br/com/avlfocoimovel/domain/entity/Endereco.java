@@ -3,6 +3,8 @@ package br.com.avlfocoimovel.domain.entity;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -19,6 +21,11 @@ public class Endereco {
 
 	private String complemento;
 
+	@NotNull(message = "Estado é obrigatório")
+	@Transient
+	private Estado estado;
+
+	//@NotNull(message = "Cidade é obrigatória")
 	@ManyToOne
 	@JoinColumn(name = "id_cidade")
 	private Cidade cidade;
@@ -89,10 +96,18 @@ public class Endereco {
 		this.referencia = referencia;
 	}
 
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+
 	@Override
 	public String toString() {
-		return "Endereco [logradouro=" + logradouro + ", numero=" + numero + ", complemento=" + complemento + ", cidade=" + cidade + ", bairro=" + bairro + ", cep=" + cep + ", referencia="
-				+ referencia + "]";
+		return "Endereco [logradouro=" + logradouro + ", numero=" + numero + ", complemento=" + complemento
+				+ ", cidade=" + cidade + ", bairro=" + bairro + ", cep=" + cep + ", referencia=" + referencia + "]";
 	}
 
 }

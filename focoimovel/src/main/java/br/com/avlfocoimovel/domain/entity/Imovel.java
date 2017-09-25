@@ -1,6 +1,7 @@
 package br.com.avlfocoimovel.domain.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -10,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -32,11 +35,15 @@ public class Imovel implements Serializable {
 	@Size(min = 5, message = "Titulo deve ter no mínimo 5 caracteres")
 	private String titulo;
 
+	@Valid
 	@Embedded
 	private Endereco endereco;
 
 	@Embedded
 	private InformacoesImovel informacoesImoveis;
+
+	@Transient
+	private List<Integer> checks;
 
 	private boolean termos;
 
@@ -106,6 +113,14 @@ public class Imovel implements Serializable {
 		return result;
 	}
 
+	public List<Integer> getChecks() {
+		return checks;
+	}
+
+	public void setChecks(List<Integer> checks) {
+		this.checks = checks;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -125,7 +140,7 @@ public class Imovel implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Imovel [codigo=" + codigo + ", finalidade=" + finalidade + ", titulo=" + titulo + ", endereco=" + endereco + ", diferenciais=" + informacoesImoveis + ", termos=" + termos + ", ativo="
-				+ ativo + "]";
+		return "Imovel [codigo=" + codigo + ", finalidade=" + finalidade + ", titulo=" + titulo + ", endereco="
+				+ endereco + ", diferenciais=" + informacoesImoveis + ", termos=" + termos + ", ativo=" + ativo + "]";
 	}
 }

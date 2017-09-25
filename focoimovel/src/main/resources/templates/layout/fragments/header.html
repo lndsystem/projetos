@@ -9,19 +9,18 @@
 							<ul class="nav nav-pills">
 								<li class="hidden-xs">
 									<span class="ws-nowrap">
-										<i class="icon-location-pin icons"></i> Osasco, São Paulo
+										<i class="icon-location-pin icons"></i> <span th:text="#{focoimovel.cidade}">Cidade / Uf</span>
 									</span>
 								</li>
 								<li>
 									<span class="ws-nowrap">
-										<i class="icon-call-out icons"></i> (55+ 11) 96977-5700
+										<i class="icon-call-out icons"></i><span th:text="#{focoimovel.celular}">Celular</span>
 									</span>
 								</li>
 								<li class="hidden-xs">
 									<span class="ws-nowrap">
 										<i class="icon-envelope-open icons"></i> 
-										<a class="text-decoration-none" href="mailto:focoimovel@contato.com.br">focoimovel@contato.com.br</a>
-										<a th:text="#{focoimovel.email}"></a>
+										<a class="text-decoration-none" th:href="|mailto:#{focoimovel.email}|" th:text="#{focoimovel.email}">email@email.com.br</a>
 									</span>
 								</li>
 							</ul>

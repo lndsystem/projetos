@@ -14,6 +14,10 @@ public class InformacoesImovel {
 
 	private Integer banheiros;
 
+	private Integer lavabos;
+
+	private Integer vagas;
+
 	@Column(name = "area_util")
 	private BigDecimal areaUtil;
 
@@ -104,9 +108,27 @@ public class InformacoesImovel {
 		this.areaTotal = areaTotal;
 	}
 
+	public Integer getLavabos() {
+		return lavabos;
+	}
+
+	public void setLavabos(Integer lavabos) {
+		this.lavabos = lavabos;
+	}
+
+	public Integer getVagas() {
+		return vagas;
+	}
+
+	public void setVagas(Integer vagas) {
+		this.vagas = vagas;
+	}
+
 	@Override
 	public String toString() {
-		return "Diferenciais [dormitorios=" + dormitorios + ", suites=" + suites + ", banheiros=" + banheiros + ", areaUtil=" + areaUtil + ", areaTotal=" + areaTotal + ", valorVenda=" + valorVenda
-				+ ", valorAluguel=" + valorAluguel + ", valorCondominio=" + valorCondominio + ", valorIptu=" + valorIptu + "]";
+		return "Diferenciais [dormitorios=" + dormitorios + ", suites=" + suites + ", banheiros=" + banheiros
+				+ ", areaUtil=" + areaUtil + ", areaTotal=" + areaTotal + ", valorVenda=" + valorVenda
+				+ ", valorAluguel=" + valorAluguel + ", valorCondominio=" + valorCondominio + ", valorIptu=" + valorIptu
+				+ "]";
 	}
 }

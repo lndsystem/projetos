@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:data="http://www.thymeleaf.org/extras/data-attribute"
+	layout:decorate="~{layout/layout-padrao.html}">
+<body class="loading-overlay-showing" data-loading-overlay>
+
+<!-- http://bootboxjs.com/examples.html#bb-confirm-dialog -->
+	<div class="body">
+		<section layout:fragment="conteudo">
+			<div role="main" class="main">
+				<section class="page-header page-header-light page-header-more-padding">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<h1>Cadastro de im&oacute;vel<span>Cadastre aqui seu im&oacute;vel e deixe que cuidamos para divulga l&oacute;.</span></h1><br/>
+								<i>Preencha os campos abaixo o mais detalhado poss&iacute;vel:</i>
+								<ul class="breadcrumb breadcrumb-valign-mid">
+									<li><a th:href="@{/}">Home</a></li>
+									<li><a th:href="@{/imoveis}">Imóveis</a></li>
+									<li class="active">Cadastro</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+				<div class="container">
+					
+					<form th:action="@{/imoveis/novo}" method="post" th:object="${imovel}">
+						<div class="alert alert-danger alert-dismissible col-md-10" role="alert" th:if="${#fields.hasErrors('*')}">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<div class="row">
+								<div class="col-md-10" th:each="err : ${#fields.errors('*')}">
+									<span th:text="${err}"></span>
+								</div>
+							</div>
+						</div>
+					
+						<div class="row">
+							<div class="form-group" th:classappend="${#fields.hasErrors('finalidade')} ? has-error">
+								<div class="col-md-10">
+									<label class="control-label" for="finalidade"><h5>Selecione a finalidade do anúncio:</h5></label>
+									<select class="form-control" name="finalidade" id="finalidade" th:field="*{finalidade}">
+										<option th:each="finalidade : ${finalidades}" th:text="${finalidade.descricao}" th:value="${finalidade.codigo}">Finalidade</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<hr>
+
+						<label><h5>Descri&ccedil;&atilde;o:</h5></label>
+						<div class="row">
+							<div class="form-group" th:classappend="${#fields.hasErrors('titulo')} ? has-error">
+								<div class="col-md-10">
+									<label class="control-label" for="titulo">* Título do anúncio:</label>
+									<input type="text" class="form-control" placeholder="Informe o título para o anúncio" name="titulo" id="titulo" maxlength="100" th:field="*{titulo}"/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-8" th:classappend="${#fields.hasErrors('endereco.logradouro')} ? has-error">
+									<label class="control-label" for="endereco">* Endereco:</label>
+									<input type="text" class="form-control" placeholder="Informe o endereço do imóvel" name="endereco" id="endereco" maxlength="150" th:field="*{endereco.logradouro}" />
+								</div>
+								<div class="col-md-2" th:classappend="${#fields.hasErrors('endereco.numero')} ? has-error">
+									<label class="control-label" for="numero">* Numero:</label>
+									<input type="text" class="form-control" placeholder="0000" name="numero" id="numero" maxlength="10" th:field="*{endereco.numero}"/>
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-4">
+									<label class="control-label" for="complemento">Complemento:</label>
+									<input type="text" class="form-control" placeholder="Casa 1" name="complemento" id="complemento" maxlength="50" th:field="*{endereco.complemento}"/>
+								</div>
+
+								<div class="col-md-4" th:classappend="${#fields.hasErrors('endereco.bairro')} ? has-error">
+									<label class="control-label" for="bairro">* Bairro:</label>
+									<input type="text" class="form-control" placeholder="Jardim Maria" name="bairro" id="bairro"  maxlength="50" th:field="*{endereco.bairro}"  />
+								</div>
+								
+								<div class="col-md-2" th:classappend="${#fields.hasErrors('endereco.cep')} ? has-error">
+									<label class="control-label" for="ceo">* Cep:</label>
+									<input type="text" class="form-control" placeholder="99999-999" name="cep" id="cep" maxlength="9" th:field="*{endereco.cep}"/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-5" th:classappend="${#fields.hasErrors('endereco.estado')} ? has-error">
+									<label class="control-label" for="estado">* Estado:</label>
+									<select class="form-control" id="estado" name="estado" th:field="*{endereco.estado}">
+										<option value="">Selecione...</option>
+										<option th:each="estado : ${estados}" th:text="${estado.nome}" th:value="${estado.codigo}">Estado</option>
+									</select>
+								</div>
+
+								<div class="col-md-5" th:classappend="${#fields.hasErrors('endereco.cidade')} ? has-error">
+									<label class="control-label" for="cidade">* Cidade:</label>
+									<select class="form-control" id="cidade" disabled="disabled" th:field="*{endereco.cidade}">
+										<option value="">Selecione...</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<hr>
+						
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-12">
+									<label><h5>Diferenciais:</label></h5>
+								</div>
+	
+								<br>
+								<div class="col-md-2" th:classappend="${#fields.hasErrors('informacoesImoveis.dormitorios')} ? has-error">
+									<label class="control-label" for="qtd_dormitorio">Dormitorio(s):</label>
+									<input type="text" class="form-control" placeholder="0" name="qtd_dormitorio" id="qtd_dormitorio" maxlength="2" th:field="*{informacoesImoveis.dormitorios}"/>
+								</div>
+	
+								<div class="col-md-2" th:classappend="${#fields.hasErrors('informacoesImoveis.suites')} ? has-error">
+									<label class="control-label" for="qtd_suite">Su&iacute;te(s):</label>
+									<input type="text" class="form-control" placeholder="0" name="qtd_suite" id="qtd_suite" maxlength="2" th:field="*{informacoesImoveis.suites}"/>
+								</div>
+	
+								<div class="col-md-2" th:classappend="${#fields.hasErrors('informacoesImoveis.banheiros')} ? has-error">
+									<label class="control-label" for="qtd_banheiro">Banheiro(s):</label>
+									<input type="text" class="form-control" placeholder="0" name="qtd_banheiro" id="qtd_banheiro" maxlength="2" th:field="*{informacoesImoveis.banheiros}"/>
+								</div>
+	
+								<div class="col-md-2" th:classappend="${#fields.hasErrors('informacoesImoveis.lavabos')} ? has-error">
+									<label class="control-label" for="qtd_lavabo">Lavabo(s):</label>
+									<input type="text" class="form-control" placeholder="0" name="qtd_lavabo" id="qtd_lavabo" maxlength="2" th:field="*{informacoesImoveis.lavabos}"/>
+								</div>
+	
+								<div class="col-md-2" th:classappend="${#fields.hasErrors('informacoesImoveis.vagas')} ? has-error">
+									<label class="control-label" for="qtd_vaga">Vaga(s):</label>
+									<input type="text" class="form-control" placeholder="0" name="qtd_vaga" id="qtd_vaga" maxlength="2" th:field="*{informacoesImoveis.vagas}"/>
+								</div>
+							</div>
+						</div>
+	
+	
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-2" th:classappend="${#fields.hasErrors('informacoesImoveis.areaUtil')} ? has-error">
+									<label class="control-label" for="area">&Aacute;rea M&sup2;:</label>
+									<input type="text" class="form-control" placeholder="0" name="area" id="area" maxlength="10" th:field="*{informacoesImoveis.areaUtil}"/>
+								</div>
+	
+								<div class="col-md-2" th:classappend="${#fields.hasErrors('informacoesImoveis.valorVenda')} ? has-error">
+									<label class="control-label" for="valor">Valor venda:</label>
+									<input type="text" class="form-control" placeholder="0,00" name="valor" id="valor" maxlength="15"  th:field="*{informacoesImoveis.valorVenda}"/>
+								</div>
+	
+								<div class="col-md-2" th:classappend="${#fields.hasErrors('informacoesImoveis.valorAluguel')} ? has-error">
+									<label class="control-label" for="valor_aluguel">Valor alugu&eacute;l:</label>
+									<input type="text" class="form-control" placeholder="0,00" name="valor_aluguel" id="valor_aluguel" maxlength="15" th:field="*{informacoesImoveis.valorAluguel}" />
+								</div>
+	
+								<div class="col-md-2" th:classappend="${#fields.hasErrors('informacoesImoveis.valorCondominio')} ? has-error">
+									<label class="control-label" for="valor_condominio">Condomin&iacute;o:</label>
+									<input type="text" class="form-control" placeholder="0,00" name="valor_condominio" id="valor_condominio" maxlength="15" th:field="*{informacoesImoveis.valorCondominio}"/>
+								</div>
+								
+								<div class="col-md-2" th:classappend="${#fields.hasErrors('informacoesImoveis.valorIptu')} ? has-error">
+									<label class="control-label" for="valor_iptu">IPTU:</label>
+									<input type="text" class="form-control" placeholder="0,00" name="valor_iptu" id="valor_iptu" maxlength="15" th:field="*{informacoesImoveis.valorIptu}" />
+								</div>
+							</div>
+						</div>
+						<hr>
+
+						<div class='row'>
+							<div class='form-group col-md-10'>
+								<div class="col-md-3" th:each="diferencial : ${diferenciais}">
+									<label>
+										<input type="checkbox" name="checks" th:value="${diferencial.codigo}" th:field="*{checks}"/>&nbsp;<span th:text="${diferencial.descricao}"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+						
+						<hr>
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-10">
+									<label><h5>Foto(s):</h5></label>
+								</div>
+								<div class="col-md-10">
+									<label><b>Slider p&aacute;gina Principal </b>(<i>Tamanho recomendado 1900x600 px</i>):</label>
+									<input type="file" class="form-control" name="foto_slider" id="foto_slider" /><br>
+								</div>
+							</div>
+						</div>
+						<hr>
+
+						<div class="row">
+							<div class="form-group" th:classappend="${#fields.hasErrors('termos')} ? has-error">
+								<div class="col-md-12" >
+									<input type="checkbox" name="concordo" th:field="*{termos}"><label>&nbsp;Eu concordo  | <a href="termo_divulgacao.php" target="_blank">Clique aqui para ler o termo de digulga&ccedil;&atilde;o</a></label>
+								</div>
+							</div>
+						</div>
+						<hr>
+
+						<hr>
+						<div class="row">
+							<div class="col-md-12">
+								<input type="submit" value="Cadastrar dados e ir para pr&oacute;xima etapa" class="btn btn-secondary mb-xlg" data-loading-text="Aguarde...">
+							</div>
+						</div>
+					</form>
+									
+				</div>
+			</div>
+		</section>
+	</div>
+</html>
+				

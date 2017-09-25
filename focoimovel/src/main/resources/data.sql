@@ -1,4 +1,4 @@
-INSERT INTO FINALIDADE(descricao) VALUES('Alugar'),('Comprar');
+INSERT INTO FINALIDADE(descricao) VALUES('Vender'),('Alugar');
 
 INSERT INTO PARAMETRO(chave,valor) VALUES('email', 'contato@focoimovel.com.br');
 
