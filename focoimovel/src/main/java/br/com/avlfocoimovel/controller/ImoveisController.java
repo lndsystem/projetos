@@ -68,6 +68,7 @@ public class ImoveisController {
 
 		imovelService.salvar(imovel);
 
+		attributes.addFlashAttribute("mensagem", "Imóvel cadastrado com sucesso!");
 		return new ModelAndView("redirect:/imoveis/novo");
 	}
 

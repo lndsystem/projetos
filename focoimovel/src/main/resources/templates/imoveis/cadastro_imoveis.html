@@ -28,6 +28,7 @@
 				<div class="container">
 					
 					<form th:action="@{/imoveis/novo}" method="post" th:object="${imovel}">
+						<!-- Mensagem de Erro -->
 						<div class="alert alert-danger alert-dismissible col-md-10" role="alert" th:if="${#fields.hasErrors('*')}">
 							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							<div class="row">
@@ -36,6 +37,18 @@
 								</div>
 							</div>
 						</div>
+						
+						
+						<!-- Mensagem de Ok -->
+						<div class="alert alert-success alert-dismissible col-md-10" role="alert" th:if="${not #strings.isEmpty(mensagem)}">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<div class="row">
+								<div class="col-md-10">
+									<span>Imóvel cadastrado com sucesso!</span>
+								</div>
+							</div>
+						</div>
+						
 					
 						<div class="row">
 							<div class="form-group" th:classappend="${#fields.hasErrors('finalidade')} ? has-error">
@@ -212,9 +225,12 @@
 						<hr>
 
 						<div class="row">
-							<div class="form-group" th:classappend="${#fields.hasErrors('termos')} ? has-error">
-								<div class="col-md-12" >
-									<input type="checkbox" name="concordo" th:field="*{termos}"><label>&nbsp;Eu concordo  | <a href="termo_divulgacao.php" target="_blank">Clique aqui para ler o termo de digulga&ccedil;&atilde;o</a></label>
+							<!-- <div class="col-md-10" th:classappend="${#fields.hasErrors('termos')} ? has-error"> -->
+							<div class="form-group">
+								<div class="col-md-10"  th:classappend="${#fields.hasErrors('termos')} ? has-error">
+									<label class="control-label" for="area">
+										<input type="checkbox" name="concordo" th:field="*{termos}">&nbsp;Eu concordo  | <a href="termo_divulgacao.php" target="_blank">Clique aqui para ler o termo de digulga&ccedil;&atilde;o</a>
+									</label>
 								</div>
 							</div>
 						</div>
