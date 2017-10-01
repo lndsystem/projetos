@@ -25,6 +25,10 @@ public class Finalidade implements Serializable {
 	@NotBlank(message = "Descrição deve ser preenchido!")
 	private String descricao;
 
+	@NotBlank(message = "Label de Exibição deve ser preencida!")
+	@Column(name = "label_exibicao", length = 30)
+	private String labelExibicao;
+
 	public Long getCodigo() {
 		return codigo;
 	}
@@ -39,6 +43,14 @@ public class Finalidade implements Serializable {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public String getLabelExibicao() {
+		return labelExibicao;
+	}
+
+	public void setLabelExibicao(String labelExibicao) {
+		this.labelExibicao = labelExibicao;
 	}
 
 	@Override

@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+import org.springframework.format.annotation.NumberFormat;
+
 @Embeddable
 public class InformacoesImovel {
 
@@ -18,21 +20,27 @@ public class InformacoesImovel {
 
 	private Integer vagas;
 
+	@NumberFormat(pattern = "#,##0.00")
 	@Column(name = "area_util")
 	private BigDecimal areaUtil;
 
+	@NumberFormat(pattern = "#,##0.00")
 	@Column(name = "area_total")
 	private BigDecimal areaTotal;
 
+	@NumberFormat(pattern = "#,##0.00")
 	@Column(name = "valor_venda")
 	private BigDecimal valorVenda;
 
+	@NumberFormat(pattern = "#,##0.00")
 	@Column(name = "valor_aluguel")
 	private BigDecimal valorAluguel;
 
+	@NumberFormat(pattern = "#,##0.00")
 	@Column(name = "valor_condominio")
 	private BigDecimal valorCondominio;
 
+	@NumberFormat(pattern = "#,##0.00")
 	@Column(name = "valor_iptu")
 	private BigDecimal valorIptu;
 

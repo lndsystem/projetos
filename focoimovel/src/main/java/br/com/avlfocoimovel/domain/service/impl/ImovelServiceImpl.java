@@ -1,5 +1,7 @@
 package br.com.avlfocoimovel.domain.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,11 @@ public class ImovelServiceImpl implements ImovelService {
 	@Override
 	public Imovel pesquisarPorCodigo(Long codigo) {
 		return repository.findOne(codigo);
+	}
+
+	@Override
+	public List<Imovel> pesquisarTodos() {
+		return repository.findAll();
 	}
 
 }

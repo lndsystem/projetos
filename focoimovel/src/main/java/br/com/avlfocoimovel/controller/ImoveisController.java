@@ -1,7 +1,6 @@
 package br.com.avlfocoimovel.controller;
 
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -77,6 +76,26 @@ public class ImoveisController {
 		Imovel imovel = imovelService.pesquisarPorCodigo(codigo);
 		ModelAndView mv = novo(imovel);
 		mv.addObject(imovel);
+		return mv;
+	}
+
+	@GetMapping("/visualizacao/{codigo}")
+	public ModelAndView visualizar(@PathVariable("codigo") Long codigo) {
+		ModelAndView mv = new ModelAndView("imoveis/visualizacao_imoveis");
+
+		Imovel imovel = imovelService.pesquisarPorCodigo(codigo);
+
+		mv.addObject(imovel);
+		mv.addObject("imgPrincipal", imovel.getFotoPrincipal());
+
+		return mv;
+	}
+
+	@GetMapping
+	public ModelAndView lista() {
+		ModelAndView mv = new ModelAndView("imoveis/lista_imoveis");
+
+		mv.addObject("imoveis", imovelService.pesquisarTodos());
 		return mv;
 	}
 }

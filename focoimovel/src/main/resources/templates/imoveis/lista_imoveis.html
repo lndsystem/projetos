@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:data="http://www.thymeleaf.org/extras/data-attribute"
+	layout:decorate="~{layout/layout-padrao.html}">
+
+<body class="loading-overlay-showing" data-loading-overlay> 
+	<div class="body">
+		<section layout:fragment="conteudo">
+			<div role="main" class="main">
+				<section class="page-header page-header-light page-header-more-padding">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<h1>Lista de Imóveis<span>Entre abaixo ótimas opções para Comprar ou Alugar.</span></h1>
+								<ul class="breadcrumb breadcrumb-valign-mid">
+									<li><a th:href="@{/}">Home</a></li>
+									<li class="active">Imóveis</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</section>
+
+				<div class="container">
+					
+					<div class="row mb-lg">
+						<ul class="properties-listing sort-destination p-none">
+							<th:block th:replace="layout/fragments/listaimoveis :: listaimoveis">
+							
+							</th:block>
+							
+							
+						</ul>
+					</div>
+					
+
+					<div class="row mt-lg mb-xlg">
+						<div class="col-md-12 center">
+							<ul class="pagination">
+								<li>
+									<a href="#">
+										<i class='fa fa-chevron-left'></i>
+									</a>
+								</li>
+								<li class="active">
+									<a href="#">1</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class='fa fa-chevron-right'></i>
+									</a>
+								</li>							
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</html>

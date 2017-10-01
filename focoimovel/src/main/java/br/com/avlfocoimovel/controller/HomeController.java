@@ -1,17 +1,25 @@
 package br.com.avlfocoimovel.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.avlfocoimovel.domain.service.ImovelService;
+
 @Controller
 @RequestMapping("/")
 public class HomeController {
 
+	@Autowired
+	private ImovelService imovelService;
+
 	@GetMapping
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView("index");
+
+		mv.addObject("imoveis", imovelService.pesquisarTodos());
 		return mv;
 	}
 
@@ -38,9 +46,9 @@ public class HomeController {
 		ModelAndView mv = new ModelAndView("emconstrucao");
 		return mv;
 	}
-	
+
 	@GetMapping("/listaimoveis")
-	public ModelAndView listaImovies(){
+	public ModelAndView listaImovies() {
 		ModelAndView mv = new ModelAndView("lista_imoveis");
 		return mv;
 	}

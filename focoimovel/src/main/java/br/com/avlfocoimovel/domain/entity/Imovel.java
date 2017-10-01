@@ -2,6 +2,7 @@ package br.com.avlfocoimovel.domain.entity;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
@@ -13,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
@@ -44,13 +46,22 @@ public class Imovel implements Serializable {
 	@Embedded
 	private InformacoesImovel informacoesImoveis;
 
-	// @Transient
-	// private List<Integer> checks;
-
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "imovel_diferenciais", joinColumns = {
 			@JoinColumn(name = "codigo_imovel") }, inverseJoinColumns = { @JoinColumn(name = "codigo_diferenciais") })
 	private List<Diferenciais> diferenciais;
+
+	// @OneToMany(cascade = CascadeType.ALL)
+	// @JoinTable(name = "imovel_foto", joinColumns = { @JoinColumn(name =
+	// "codigo_imovel") }, inverseJoinColumns = {
+	// @JoinColumn(name = "codigo_foto") })
+	// private List<Foto> fotos;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "codigo_imovel")
+	private List<Foto> fotos;
+
+	private String descricao;
 
 	private boolean termos;
 
@@ -112,6 +123,34 @@ public class Imovel implements Serializable {
 		this.ativo = ativo;
 	}
 
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public List<Foto> getFotos() {
+		return fotos;
+	}
+
+	public void setFotos(List<Foto> fotos) {
+		this.fotos = fotos;
+	}
+
+	public Foto getFotoPrincipal() {
+		Foto semFoto = new Foto("/img/foto_imoveis/sem_foto.jpg");
+		Optional<Foto> fotoPrincipal = Optional.empty();
+		if (fotos.isEmpty() == false) {
+			fotoPrincipal = fotos.stream().filter(f -> f.isPrincipal()).findFirst();
+			if (fotoPrincipal.isPresent()) {
+				return fotoPrincipal.get();
+			}
+		}
+		return semFoto;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -119,14 +158,6 @@ public class Imovel implements Serializable {
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
-
-	// public List<Integer> getChecks() {
-	// return checks;
-	// }
-	//
-	// public void setChecks(List<Integer> checks) {
-	// this.checks = checks;
-	// }
 
 	@Override
 	public boolean equals(Object obj) {

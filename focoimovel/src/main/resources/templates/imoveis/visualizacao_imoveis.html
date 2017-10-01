@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:data="http://www.thymeleaf.org/extras/data-attribute"
+	layout:decorate="~{layout/layout-padrao.html}">
+<body class="loading-overlay-showing" data-loading-overlay>
+	<div class="body">
+		<section layout:fragment="conteudo">
+			<div role="main" class="main">
+				<form th:object=${imovel}>
+					<section class="page-header page-header-light page-header-more-padding">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12">
+									<h1>
+										<th:block th:text="${imovel.titulo}"/>
+										<span><th:block th:text="${imovel.finalidade.labelExibicao}"/> - <a href='#map' data-hash data-hash-offset='100'>(Veja no mapa)</a></span>
+									</h1>
+									<ul class="breadcrumb breadcrumb-valign-mid">
+										<li><a th:href="@{/}">Home</a></li>
+										<li><a href="#">imoveis</a></li>
+										<li class="active">Detalhes</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</section>
+	
+					<div class="container">
+						<div class="row pb-xl pt-md">
+							<div class="col-md-9">
+								<div class="row">
+									<div class="col-md-7">
+										<span class="thumb-info-listing-type thumb-info-listing-type-detail background-color-secondary text-uppercase text-color-light font-weight-semibold p-sm pl-md pr-md">
+											<th:block th:text="${imovel.finalidade.labelExibicao}"/>									
+										</span>
+										<div class="thumb-gallery">
+											<div class="lightbox" data-plugin-options="{'delegate': 'a', 'type': 'image', 'gallery': {'enabled': true}}">
+												<div class="owl-carousel owl-theme manual thumb-gallery-detail show-nav-hover" id="thumbGalleryDetail">
+													<div>	
+														<a href=''>		
+															<span class='thumb-info thumb-info-centered-info thumb-info-no-borders font-size-xl'>			
+																<span class='thumb-info-wrapper font-size-xl'>				
+																	<img alt='Property Detail' th:src='${imgPrincipal.foto}' class='img-responsive'/>				
+																	<span class='thumb-info-title font-size-xl'>					
+																		<span class='thumb-info-inner font-size-xl'>
+																			<i class='icon-magnifier icons font-size-xl'></i>
+																		</span>				
+																	</span>
+																</span>		
+															</span>	
+														</a>
+													</div>
+												</div>
+											</div>
+	
+											<div class="owl-carousel owl-theme manual thumb-gallery-thumbs mt" id="thumbGalleryThumbs">
+												<div th:each="foto : ${imovel.fotos}">	
+													<img alt='13 Casa asobradada' th:src='${foto.foto}' class='img-responsive cur-pointer'>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-5">
+										<table class="table table-striped">
+											<colgroup>
+												<col width="35%">
+												<col width="65%">
+											</colgroup>
+											<tbody>
+												<tr th:if="${imovel.informacoesImoveis.valorVenda} gt 0.00">
+													<td class="background-color-primary text-light pt-md" style="padding-bottom: 10px">
+														Venda R$:
+													</td>
+													<td class="font-size-xl font-weight-bold pt-sm pb-sm background-color-primary text-light" th:text="${{imovel.informacoesImoveis.valorVenda}}">
+														R$ XX.XXX,XX
+													</td>
+												</tr>													
+												<tr th:if="${imovel.informacoesImoveis.valorAluguel} gt 0.00">
+													<td class="background-color-primary text-light pt-md" style="padding-bottom: 10px">
+														Aluguel R$:
+													</td>
+													<td class="font-size-xl font-weight-bold pt-sm pb-sm background-color-primary text-light" th:text="${{imovel.informacoesImoveis.valorAluguel}}">
+														R$ XX.XXX,XX
+													</td>
+												</tr>
+												<tr th:if="${imovel.informacoesImoveis.valorCondominio} gt 0.00">
+													<td class="background-color-primary text-light pt-md" style="padding-bottom: 10px">
+														Condomínio R$:
+													</td>
+													<td class="font-size-xl font-weight-bold pt-sm pb-sm background-color-primary text-light" th:text="${{imovel.informacoesImoveis.valorCondominio}}">
+														R$ XX.XXX,XX
+													</td>
+												</tr>
+												
+												<tr>
+													<td>C&oacute;digo:</td>
+													<td># <b th:text="${imovel.codigo}">codigo</b></td>
+												</tr>
+												<tr>
+													<td>Anunciante</td>
+													<td><b>Alberto</b></td>
+												</tr>
+	
+												<tr>
+													<td>Endere&ccedil;o:</td>
+													<td>
+														<span th:text="${imovel.endereco.logradouro}"></span><br/>
+														<span th:text="|${imovel.endereco.bairro} - ${imovel.endereco.cidade.nome}|"></span><br/>
+														<span th:text="${imovel.endereco.cep}"></span>
+													</td>
+												</tr>
+												<tr>
+													<td>&Aacute;rea m&sup2;</td>
+													<td th:text="${{imovel.informacoesImoveis.areaUtil}}">xxx</td>
+												</tr>
+												<tr>
+													<td>Dormit&oacute;rio</td>
+													<td th:text="${imovel.informacoesImoveis.dormitorios}">x</td>
+												</tr>
+												<tr>
+													<td>Su&iacute;te</td>
+													<td th:text="${imovel.informacoesImoveis.suites}">x</td>
+												</tr>
+												<tr>
+													<td>Garagem</td>
+													<td th:text="${imovel.informacoesImoveis.vagas}">x</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td></td>
+												</tr>
+											</tbody>
+										</table>
+	
+									</div>
+								</div>
+	
+								<div class="row">
+									<div class="col-md-12">
+										<h4 class="mt-md mb-md">Descri&ccedil;&atilde;o</h4>
+	
+										<p>Casa térria com cobrado, apenas 2 minutos do rodoanel</p>
+										<hr class="solid tall">
+	
+										<h4 class="mt-md mb-md">Diferenciais</h4>
+	
+										<!-- For -->
+										<ul class="list list-icons list-secondary row m-none">
+											<li class='col-sm-6 col-md-4' th:each="item : ${imovel.diferenciais}">
+												<i class='fa fa-check'></i><spam th:text="${item.descricao}"></spam>
+											</li>
+										</ul>
+										<hr class="solid tall">
+	
+										<h4 class="mt-md mb-md" id="map">Localiza&ccedil;&atilde;o</h4>
+	
+										<div id="googlemaps" class="google-map m-none mb-xlg"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+</body>
+</html>
