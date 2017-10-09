@@ -27,7 +27,17 @@ public class ImovelServiceImpl implements ImovelService {
 
 	@Override
 	public List<Imovel> pesquisarTodos() {
-		return repository.findAll();
+		return repository.findAllByAtivoTrue();
+	}
+
+	@Override
+	public List<Imovel> pesquisarTodosDestaques() {
+		return repository.findAllByAtivoTrueAndDestaqueTrue();
+	}
+
+	@Override
+	public List<Imovel> pesquisarTodasOfertas() {
+		return repository.findAllByAtivoTrueAndOfertaTrue();
 	}
 
 }

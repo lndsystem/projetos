@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<div class="slider-container light rev_slider_wrapper" style="height: 650px;" th:fragment="layout-carrocel">
+			<div id="revolutionSlider" class="slider rev_slider" data-plugin-revolution-slider="" data-plugin-options="{'delay': 9000, 'gridwidth': 1170, 'gridheight': 650, 'disableProgressBar': 'on', 'navigation': {'arrows': {'enable': true, 'left':{'container':'slider','h_align':'right','v_align':'center','h_offset':20,'v_offset':-80},'right':{'container':'slider','h_align':'right','v_align':'center','h_offset':20,'v_offset':80}}}}">
+				<div class="slides-number hidden-xs">
+					<span class="atual">1</span>
+					<span class="total">3</span>
+				</div>
+				<ul>
+					<th:block th:each="imovel : ${destaques}">
+					<li data-transition='fade'>
+						<img th:src='${imovel.fotoSlide.foto}' data-bgposition='center center' data-bgfit='cover' data-bgrepeat='no-repeat' class='rev-slidebg' width='1920' height='650'></img>
+						<div class='tp-caption tp-shape tp-shapewrapper tp-resizeme skrollable skrollable-after' 	id='slide-529-layer-1'	data-x='left' data-hoffset='15'	data-y='center' data-voffset='0'	data-width='360' 	data-height='360' 	data-whitespace='nowrap' 	data-transform_idle='o:1;' 	data-transform_in='z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;' 	data-transform_out='x:left;s:1200;e:Power3.easeInOut;' 	data-start='500' 	data-responsive_offset='on' 	style='background-color: rgb(255, 255, 255); padding: 30px; overflow: hidden;'>	
+							<span class='featured-border' style='border: 2px solid #dcdde0; width: 90%; position: absolute; height: 90%; top: 5%; left: 5%;'></span>
+							<span class='feature-tag' data-width='50' data-height='50' style='background: #2bca6e; color: #FFF; text-transform: uppercase; padding: 15px 102px; position: absolute; right: -24%; top: 16%; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); transform: rotate(45deg);' th:text="${imovel.endereco.cidade.nome}">Cidade</span>
+						</div>
+						<div class='tp-caption main-label' 	data-x='left' data-hoffset='35' 	data-y='center' data-voffset='-80' 	data-start='1500' 	data-whitespace='nowrap' 	data-transform_in='y:[-100%];s:500;' 	data-transform_out='opacity:0;s:500;' 	data-textAlign='center' 	style='z-index: 5; font-size: 1.5em; color: #000; text-transform: uppercase; font-weight: 900; text-shadow: none; width: 27vw; max-width: 320px;' data-mask_in='x:0px;y:0px;'>
+							<span th:text="${imovel.tipoImovel.nome}"></span><br/>
+							<span th:text="${imovel.finalidade.labelExibicao}"></span>
+						</div>
+						<div class='tp-caption'	data-x='left' data-hoffset='35'	data-y='center' data-voffset='50'	data-start='1500'	data-height='44'	data-whitespace='nowrap'	data-transform_idle='o:1;' 	data-transform_in='z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeOut;' 	data-transform_out='x:left;s:1200;e:Power3.easeInOut;'	data-textAlign='center' 	style='z-index: 5; font-size: 3em; font-weight: 400; text-transform: uppercase; color: #219cd2; line-height: 0.8em; width: 27vw; max-width: 320px;' data-mask_in='x:0px;y:0px;' th:text="|R$ ${{imovel.valorExibicao}}|">R$ 200,00</div>
+						<a class='tp-caption slide-button'	th:href='@{/imoveis/visualizacao/{codigo}(codigo=${imovel.codigo})}' 	data-x='left' data-hoffset='108'	data-y='center' data-voffset='120'	data-start='1500'	data-whitespace='nowrap'	data-transform_in='y:[100%];s:500;'	data-transform_out='opacity:0;s:500;'	style='z-index: 5; font-size: 1em; text-transform: uppercase; background: #219cd2; padding: 12px 35px; color: #FFF;'	data-mask_in='x:0px;y:0px;'>Mais detalhes</a>
+					</li>
+					</th:block>
+					
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

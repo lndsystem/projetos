@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.avlfocoimovel.domain.service.ImovelService;
+import br.com.avlfocoimovel.domain.service.TipoImovelService;
 
 @Controller
 @RequestMapping("/")
@@ -15,11 +16,17 @@ public class HomeController {
 	@Autowired
 	private ImovelService imovelService;
 
+	@Autowired
+	private TipoImovelService tipoImovelService;
+
 	@GetMapping
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView("index");
-
+		mv.addObject("true_list", true);
 		mv.addObject("imoveis", imovelService.pesquisarTodos());
+		mv.addObject("destaques", imovelService.pesquisarTodosDestaques());
+		mv.addObject("ofertas", imovelService.pesquisarTodasOfertas());
+		mv.addObject("tiposImoveis", tipoImovelService.pesquisarTodos());
 		return mv;
 	}
 
@@ -44,12 +51,6 @@ public class HomeController {
 	@GetMapping("/emconstrucao")
 	public ModelAndView emConstrucao() {
 		ModelAndView mv = new ModelAndView("emconstrucao");
-		return mv;
-	}
-
-	@GetMapping("/listaimoveis")
-	public ModelAndView listaImovies() {
-		ModelAndView mv = new ModelAndView("lista_imoveis");
 		return mv;
 	}
 }

@@ -1,6 +1,7 @@
 package br.com.avlfocoimovel.domain.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,11 +16,13 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.NumberFormat;
 
 @Entity
 @Table(name = "imovel")
@@ -51,12 +54,6 @@ public class Imovel implements Serializable {
 			@JoinColumn(name = "codigo_imovel") }, inverseJoinColumns = { @JoinColumn(name = "codigo_diferenciais") })
 	private List<Diferenciais> diferenciais;
 
-	// @OneToMany(cascade = CascadeType.ALL)
-	// @JoinTable(name = "imovel_foto", joinColumns = { @JoinColumn(name =
-	// "codigo_imovel") }, inverseJoinColumns = {
-	// @JoinColumn(name = "codigo_foto") })
-	// private List<Foto> fotos;
-
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "codigo_imovel")
 	private List<Foto> fotos;
@@ -66,6 +63,14 @@ public class Imovel implements Serializable {
 	private boolean termos;
 
 	private boolean ativo;
+
+	private boolean destaque;
+
+	private boolean oferta;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "codigo_tipo_imovel")
+	private TipoImovel tipoImovel;
 
 	public Long getCodigo() {
 		return codigo;
@@ -139,6 +144,30 @@ public class Imovel implements Serializable {
 		this.fotos = fotos;
 	}
 
+	public boolean isDestaque() {
+		return destaque;
+	}
+
+	public void setDestaque(boolean destaque) {
+		this.destaque = destaque;
+	}
+
+	public boolean isOferta() {
+		return oferta;
+	}
+
+	public void setOferta(boolean oferta) {
+		this.oferta = oferta;
+	}
+
+	public TipoImovel getTipoImovel() {
+		return tipoImovel;
+	}
+
+	public void setTipoImovel(TipoImovel tipoImovel) {
+		this.tipoImovel = tipoImovel;
+	}
+
 	public Foto getFotoPrincipal() {
 		Foto semFoto = new Foto("/img/foto_imoveis/sem_foto.jpg");
 		Optional<Foto> fotoPrincipal = Optional.empty();
@@ -149,6 +178,27 @@ public class Imovel implements Serializable {
 			}
 		}
 		return semFoto;
+	}
+
+	public Foto getFotoSlide() {
+		Foto semFoto = new Foto("/img/foto_imoveis/sem_foto.jpg");
+		Optional<Foto> fotoPrincipal = Optional.empty();
+		if (fotos.isEmpty() == false) {
+			fotoPrincipal = fotos.stream().filter(f -> f.isSlide()).findFirst();
+			if (fotoPrincipal.isPresent()) {
+				return fotoPrincipal.get();
+			}
+		}
+		return semFoto;
+	}
+
+	@NumberFormat(pattern = "#,##0.00")
+	public BigDecimal getValorExibicao() {
+		if (finalidade.getDescricao().equals("Vender")) {
+			return informacoesImoveis.getValorVenda();
+		} else {
+			return informacoesImoveis.getValorAluguel();
+		}
 	}
 
 	@Override

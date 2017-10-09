@@ -153,27 +153,9 @@
 																			<div class="col-md-2">
 																				<div class="form-control-custom">
 																					<select class="form-control text-uppercase font-size-sm" data-msg-required="Por favor, selecionar o tipo da resid&ecirc;ncia." id="frmPT" name="frmPT">
-																						<option value="">Tipo residência</option>
-																						<option value='Apartamento'>Apartamento</option>
-																						<option value='Casa'>Casa</option>
-																						<option value='Casa de Condomínio'>Casa de Condomínio</option>
-																						<option value='Chácara'>Chácara</option>
-																						<option value='Cobertura'>Cobertura</option>
-																						<option value='Comercial'>Comercial</option>
-																						<option value='Consultório'>Consultório</option>
-																						<option value='Edifício residencial'>Edifício residencial</option>
-																						<option value='Fazenda/Sítio'>Fazenda/Sítio</option>
-																						<option value='Flat'>Flat</option>
-																						<option value='Galpão/Depósito/Armazém'>Galpão/Depósito/Armazém</option>
-																						<option value='Imóvel comercial'>Imóvel comercial</option>
-																						<option value='Kitnet'>Kitnet</option>
-																						<option value='Loja'>Loja</option>
-																						<option value='Lote/Terreno'>Lote/Terreno</option>
-																						<option value='Lote/Terreno'>Lote/Terreno</option>
-																						<option value='Ponto comercial'>Ponto comercial</option>
-																						<option value='Residencial'>Residencial</option>
-																						<option value='Sala comercial'>Sala comercial</option>
-																						<option value='Sobrado'>Sobrado</option>																			</select>
+																						<option value="">Tipo do imóvel</option>
+																						<option th:each="tipoImovel : ${tiposImoveis}" th:value="${tipoImovel.codigo}" th:text="${tipoImovel.nome}">Tipo</option>
+																					</select>
 																				</div>
 																			</div>
 																			<div class="col-md-2">

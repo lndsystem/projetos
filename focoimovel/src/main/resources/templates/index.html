@@ -7,11 +7,12 @@
 <body>
 	<div class="body" >
 		<section layout:fragment="conteudo">
-			<div th:replace="layout/fragments/carrocel :: layout-carrocel"></div>
+			<div th:replace="imoveis/carrocel :: layout-carrocel"></div>
 			<div class="container">
 				<div class="row pt-xlg mt-xlg">
-					<div th:replace="layout/fragments/listaimoveis :: layout-listaimovies"></div>
-					<div th:replace="layout/fragments/ofertas :: layout-ofertas"></div>
+					<div th:replace="imoveis/lista_imoveis :: layout-listaimovies"></div>
+					<div th:replace="imoveis/ofertas :: layout-ofertas"></div>
+					
 				</div>
 			</div>
 		</section>

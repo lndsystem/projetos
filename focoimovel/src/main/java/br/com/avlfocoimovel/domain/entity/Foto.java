@@ -31,6 +31,8 @@ public class Foto {
 
 	private boolean principal;
 
+	private boolean slide;
+
 	@ManyToOne
 	@JoinColumn(name = "codigo_imovel")
 	private Imovel imovel;
@@ -101,6 +103,14 @@ public class Foto {
 
 	public void setImovel(Imovel imovel) {
 		this.imovel = imovel;
+	}
+
+	public boolean isSlide() {
+		return slide;
+	}
+
+	public void setSlide(boolean slide) {
+		this.slide = slide;
 	}
 
 	@Override

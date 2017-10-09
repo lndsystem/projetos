@@ -1,0 +1,1 @@
+INSERT INTO item(etiqueta,descricao,data_aquisicao) VALUES('XPTO1','XPTO1',CURRENT_DATE()),('XPTO2','XPTO2',CURRENT_DATE());

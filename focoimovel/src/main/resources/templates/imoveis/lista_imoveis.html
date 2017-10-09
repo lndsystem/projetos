@@ -1,63 +1,62 @@
 <!DOCTYPE html>
-<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	xmlns:data="http://www.thymeleaf.org/extras/data-attribute"
-	layout:decorate="~{layout/layout-padrao.html}">
-
-<body class="loading-overlay-showing" data-loading-overlay> 
-	<div class="body">
-		<section layout:fragment="conteudo">
-			<div role="main" class="main">
-				<section class="page-header page-header-light page-header-more-padding">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
-								<h1>Lista de Imóveis<span>Entre abaixo ótimas opções para Comprar ou Alugar.</span></h1>
-								<ul class="breadcrumb breadcrumb-valign-mid">
-									<li><a th:href="@{/}">Home</a></li>
-									<li class="active">Imóveis</li>
-								</ul>
-							</div>
-						</div>
-
-					</div>
-				</section>
-
-				<div class="container">
-					
-					<div class="row mb-lg">
-						<ul class="properties-listing sort-destination p-none">
-							<th:block th:replace="layout/fragments/listaimoveis :: listaimoveis">
-							
-							</th:block>
-							
-							
-						</ul>
-					</div>
-					
-
-					<div class="row mt-lg mb-xlg">
-						<div class="col-md-12 center">
-							<ul class="pagination">
-								<li>
-									<a href="#">
-										<i class='fa fa-chevron-left'></i>
-									</a>
-								</li>
-								<li class="active">
-									<a href="#">1</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class='fa fa-chevron-right'></i>
-									</a>
-								</li>							
-							</ul>
-						</div>
-					</div>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<div class="col-md-9" th:fragment="layout-listaimovies">
+			<div class="row">
+				<div class="col-md-12" th:if="${true_list}">
+					<h2 class="font-weight-normal mb-xs">
+						Lista de imóveis para<strong class="text-color-secondary font-weight-extra-bold"> Venda </strong> <span class="font-weight-light"> ou para </span> <strong class="text-color-secondary font-weight-extra-bold">Alugar</strong>
+					</h2>
 				</div>
 			</div>
-		</section>
-	</div>
+			<div class="row">
+				<ul id="listingLoadMoreWrapper" class="properties-listing sort-destination p-none" data-total-pages="2">
+					<th:block th:fragment="listaimoveis">
+						<li class='col-md-4 col-sm-6 col-xs-12 p-md isotope-item' th:each="imovel : ${imoveis}">	
+							<div class='listing-item'>		
+								<a th:href='@{/imoveis/visualizacao/{codigo}(codigo=${imovel.codigo})}' class='text-decoration-none'>		
+									<span class='thumb-info thumb-info-lighten'>			
+										<span class='thumb-info-wrapper m-none'>				
+											<img th:src="${imovel.fotoPrincipal.foto}" class="img-responsive"></img>				
+											<span class='thumb-info-listing-type background-color-secondary text-uppercase text-color-light font-weight-semibold p-xs pl-md pr-md'><th:block th:text="${imovel.finalidade.labelExibicao}"></span>				
+											<span class='thumb-info-price background-color-primary text-color-light text-lg p-sm pl-md pr-md'>
+												<th:block th:if="${imovel.finalidade.codigo} eq 1" th:text="|R$ ${{imovel.informacoesImoveis.valorVenda}}|"/>
+												<th:block th:if="${imovel.finalidade.codigo} eq 2" th:text="|R$ ${{imovel.informacoesImoveis.valorAluguel}}|"/>
+												
+												
+												<i class='fa fa-caret-right text-color-secondary pull-right'></i>				
+											</span>				
+											<span class='custom-thumb-info-title b-normal p-lg'>
+												<span class='thumb-info-inner text-md' th:text="|${imovel.endereco.cidade.nome} / ${imovel.endereco.bairro}|">São Paulo | Parque Jandaia</span>						
+												<ul class="accommodations text-uppercase font-weight-bold p-none text-sm">							
+													<li>								
+														<span class='accomodation-title'>Suite:</span>								
+														<span class='accomodation-value custom-color-1' th:text="${imovel.informacoesImoveis.suites}">1</span>							
+													</li>							
+													<li>								
+														<span class='accomodation-title'>Dor.:</span>
+														<span class='accomodation-value custom-color-1' th:text="${imovel.informacoesImoveis.dormitorios}">2</span>
+													</li>							
+													<li>								
+														<span class='accomodation-title'>Area:</span>
+														<span class='accomodation-value custom-color-1' th:text="|${{imovel.informacoesImoveis.areaUtil}} m²|">125m²</span>
+													</li>						
+												</ul>				
+											</span>			
+										</span>	
+									</span>	
+								</a>	
+							</div>
+						</li>
+					</th:block>
+				</ul>
+				<div class="col-md-12" th:if="${true_list}">
+					<a th:href="@{/imoveis}">
+						<button id="listingLoadMore" type="button" class="btn btn-secondary btn-xs font-size-md text-uppercase outline-none p-md pl-xlg pr-xlg m-auto mb-xlg mt-xlg">Exibir todos.</button>
+					</a>
+				</div>
+			</div>
+			<div th:replace="layout/fragments/lancamentos :: layout-lancamentos"></div>
+		</div>
+	</body>
 </html>

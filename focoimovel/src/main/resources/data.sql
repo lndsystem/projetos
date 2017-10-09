@@ -62,6 +62,26 @@ INSERT INTO diferenciais (descricao) VALUES  ('Academia'),
  ('Sauna'),
  ('TV a Cabo'),
  ('Varanda Gourmet');
+ 
+INSERT INTO tipo_imovel (nome) VALUES ('Apartamento'),
+('Casa'),
+('Casa de Condomínio'),
+('Chácara'),
+('Cobertura'),
+('Comercial'),
+('Consultório'),
+('Edifício residencial'),
+('Fazenda/Sítio'),
+('Flat'),
+('Galpão/Depósito/Armazém'),
+('Imóvel comercial'),
+('Kitnet'),
+('Loja'),
+('Lote/Terreno'),
+('Ponto comercial'),
+('Residencial'),
+('Sala comercial'),
+('Sobrado');
 
 INSERT INTO imovel ( 
 	ativo, 
@@ -86,7 +106,10 @@ INSERT INTO imovel (
 	valor_iptu, 
 	valor_venda, 
 	termos, 
-	titulo
+	titulo,
+	destaque,
+	oferta,
+	codigo_tipo_imovel
 ) VALUES (
 	1, 
 	'Casa térria com cobrado, apenas 2 minutos do rodoanel', 
@@ -110,7 +133,10 @@ INSERT INTO imovel (
 	30.00, 
 	500000.00, 
 	1, 
-	'Lindo Apartamento'
+	'Lindo Apartamento',
+	1,
+	0,
+	1
 );
 
 INSERT INTO imovel_diferenciais(codigo_imovel,codigo_diferenciais) VALUES (1,5), (1,7), (1,9), (1,13), (1,18); 
@@ -120,12 +146,21 @@ INSERT INTO foto(
 	foto,
 	principal,
 	tamanho,
-	codigo_imovel
+	codigo_imovel,
+	slide
 ) VALUES (
 	'img',
 	'/img/foto_imoveis/sem_foto.jpg',
 	1,
 	1234,
+	1,
+	0
+), (
+	'img',
+	'/img/foto_imoveis/slides/slide_1.jpg',
+	0,
+	1234,
+	1,
 	1
 );
 
@@ -134,13 +169,15 @@ INSERT INTO foto(
 	foto,
 	principal,
 	tamanho,
-	codigo_imovel
+	codigo_imovel,
+	slide
 ) VALUES (
 	'img',
 	'/img/foto_imoveis/foto_anuncio1_1.jpg',
 	1,
 	1234,
-	1
+	1,
+	0
 );
 
 INSERT INTO imovel ( 
@@ -166,7 +203,10 @@ INSERT INTO imovel (
 	valor_iptu, 
 	valor_venda, 
 	termos, 
-	titulo
+	titulo,
+	destaque,
+	oferta,
+	codigo_tipo_imovel
 ) VALUES (
 	1, 
 	'Casa térria com cobrado, apenas 2 minutos do rodoanel', 
@@ -190,9 +230,8 @@ INSERT INTO imovel (
 	30.00, 
 	0.00, 
 	1, 
-	'Lindo Apartamento'
+	'Lindo Apartamento',
+	0,
+	1,
+	2
 );
-
-
-
-

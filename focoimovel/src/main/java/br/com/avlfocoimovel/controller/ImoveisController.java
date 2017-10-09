@@ -93,9 +93,9 @@ public class ImoveisController {
 
 	@GetMapping
 	public ModelAndView lista() {
-		ModelAndView mv = new ModelAndView("imoveis/lista_imoveis");
-
+		ModelAndView mv = new ModelAndView("imoveis/lista_imoveis_todos");
 		mv.addObject("imoveis", imovelService.pesquisarTodos());
+		
 		return mv;
 	}
 }
