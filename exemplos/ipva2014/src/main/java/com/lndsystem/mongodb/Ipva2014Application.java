@@ -20,9 +20,9 @@ public class Ipva2014Application {
 		return args -> {
 			System.out.println("Iniciando a pesquisa");
 
-			Car car = carRepository.findOne("59e69a902bb8aac3c88c5b7d");
-			
-//			Car moto = carRepository.f
+			Car car = carRepository.findByPlaca("EII3818");
+
+			System.out.println(car);
 
 			System.out.println("Finalizando a pesquisa");
 		};

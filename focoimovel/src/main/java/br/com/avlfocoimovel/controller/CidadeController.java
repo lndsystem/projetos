@@ -20,7 +20,7 @@ import br.com.avlfocoimovel.domain.service.EstadoService;
 import br.com.avlfocoimovel.exception.CidadeJaCadastradaException;
 
 @Controller
-@RequestMapping("/cidade")
+@RequestMapping("/admin/cidade")
 public class CidadeController {
 
 	@Autowired
@@ -31,7 +31,7 @@ public class CidadeController {
 
 	@GetMapping
 	public ModelAndView pesquisa(CidadeFilter cidadeFilter) {
-		ModelAndView mv = new ModelAndView("cidade/pesquisa_cidade");
+		ModelAndView mv = new ModelAndView("admin/cidade/pesquisa_cidade");
 		mv.addObject("estados", estadoService.pesquisarTodos());
 		mv.addObject("cidades", cidadeService.pesquisarTodos());
 		return mv;
@@ -40,12 +40,12 @@ public class CidadeController {
 	@GetMapping("/delete/{codigo}")
 	public ModelAndView remover(@PathVariable("codigo") Long codigo) {
 		cidadeService.remover(codigo);
-		return new ModelAndView("redirect:/cidade");
+		return new ModelAndView("redirect:/admin/cidade");
 	}
 
 	@GetMapping("/novo")
 	public ModelAndView form(Cidade cidade) {
-		ModelAndView mv = new ModelAndView("cidade/cadastro_cidade");
+		ModelAndView mv = new ModelAndView("admin/cidade/cadastro_cidade");
 		mv.addObject("estados", estadoService.pesquisarTodos());
 		return mv;
 	}
@@ -71,7 +71,7 @@ public class CidadeController {
 			return form(cidade);
 		}
 
-		return new ModelAndView("redirect:/cidade");
+		return new ModelAndView("redirect:/admin/cidade");
 	}
 
 }

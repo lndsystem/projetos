@@ -17,7 +17,7 @@
 								<h1>Cadastro cidade</h1>
 								<ul class="breadcrumb breadcrumb-valign-mid">
 									<li><a th:href="@{/}">Home</a></li>
-									<li><a th:href="@{/cidade}">Cidade</a></li>
+									<li><a th:href="@{/admin/cidade}">Cidade</a></li>
 									<li class="active">Cadastro</li>
 								</ul>
 							</div>
@@ -26,7 +26,7 @@
 				</section>
 	
 				<div class="container">
-					<form th:action="@{/cidade/novo}" method="post" th:object="${cidade}">
+					<form th:action="@{/admin/cidade/novo}" method="post" th:object="${cidade}">
 					
 					
 						<div class="alert alert-danger alert-dismissible col-md-8" role="alert" th:if="${#fields.hasErrors('*')}">

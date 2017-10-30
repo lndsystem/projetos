@@ -15,7 +15,7 @@
 								<h1>Pesquisa cidade</h1>
 								<ul class="breadcrumb breadcrumb-valign-mid">
 									<li><a th:href="@{/}">Home</a></li>
-									<li><a th:href="@{/admin/cidade}">Cidade</a></li>
+									<li><a th:href="@{/cidade}">Cidade</a></li>
 									<li class="active">Pesquisa</li>
 								</ul>
 							</div>
@@ -47,11 +47,8 @@
 									</div>
 								</div>	
 								<div class="row">
-									<div class="col-md-3">
+									<div class="col-md-12">
 										<input type="submit" value="Pesquisar Cidade" class="btn btn-secondary mb-xlg" data-loading-text="Aguarde...">
-									</div>
-									<div class="col-md-3">
-										<a th:href="@{/admin/cidade/novo}" class="btn btn-secondary mb-xlg">Nova Cidade</a>
 									</div>
 								</div>
 							</form>
