@@ -1,12 +1,7 @@
 package com.lndsystem.mongodb;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-
-import com.lndsystem.mongodb.documents.Car;
-import com.lndsystem.mongodb.repository.CarRepository;
 
 @SpringBootApplication
 public class Ipva2014Application {
@@ -15,16 +10,16 @@ public class Ipva2014Application {
 		SpringApplication.run(Ipva2014Application.class, args);
 	}
 
-	@Bean
-	CommandLineRunner init(CarRepository carRepository) {
-		return args -> {
-			System.out.println("Iniciando a pesquisa");
-
-			Car car = carRepository.findByPlaca("EII3818");
-
-			System.out.println(car);
-
-			System.out.println("Finalizando a pesquisa");
-		};
-	}
+//	@Bean
+//	CommandLineRunner init(CarRepository carRepository) {
+//		return args -> {
+//			System.out.println("Iniciando a pesquisa");
+//
+//			Car car = carRepository.findByPlaca("EII3818");
+//
+//			System.out.println(car);
+//
+//			System.out.println("Finalizando a pesquisa");
+//		};
+//	}
 }
