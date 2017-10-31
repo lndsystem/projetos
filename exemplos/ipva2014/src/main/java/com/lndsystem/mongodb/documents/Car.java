@@ -3,6 +3,7 @@ package com.lndsystem.mongodb.documents;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -85,6 +86,9 @@ public class Car {
 	@Indexed
 	@Field(value = "CPF_CNPJ")
 	private long cpfCnpj;
+
+	@Transient
+	private String fabricante;
 
 	public String getId() {
 		return id;
@@ -276,6 +280,14 @@ public class Car {
 
 	public void setChassi(String chassi) {
 		this.chassi = chassi;
+	}
+
+	public String getFabricante() {
+		return fabricante;
+	}
+
+	public void setFabricante(String fabricante) {
+		this.fabricante = fabricante;
 	}
 
 	@Override

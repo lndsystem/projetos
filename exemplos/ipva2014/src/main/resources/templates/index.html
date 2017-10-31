@@ -1,37 +1,87 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>WebJars Demo</title>
-        <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" />
-    </head>
-    <body>
-        <div class="container"><br/>
-            <div class="alert alert-success">
-                <a href="#" class="close" data-dismiss="alert"
-                  aria-label="close">×</a>
-                <strong>Success!</strong> It is working as we expected.
-            </div>
-            
-            <div class="row">
-            		<div class="form-group  col-sm-3">
-            			<label class="control-label">Placa</label>
-            			<input type="text" class="form-control"/>
-            		</div>
-            		
-            		<div class="form-group  col-sm-3">
-            			<label class="control-label">Renavan</label>
-            			<input type="text" class="form-control"/>
-            		</div>
-            		
-            		<div class="form-group  col-sm-3">
-            			<label class="control-label">CPF / CNPJ</label>
-            			<input type="text" class="form-control"/>
-            		</div>
-            </div>
-        </div>
-        
-        <script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
-        <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
-    </body>
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>WebJars Demo</title>
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" />
+</head>
+<body>
+	<div class="container">
+		<br />
+		<form th:object="${filter}" method="post">
+			<div class="row">
+				<div class="col-sm-2  text-center  col-sm-offset-3">
+					<strong>Opção 1</strong>
+				</div>
+				<div class="col-sm-2  text-center">
+					<strong>ou Opção 2</strong>
+				</div>
+				<div class="col-sm-2  text-center">
+					<strong>ou Opção 3</strong>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group  col-sm-2  text-center  col-sm-offset-3"
+					th:classappend="${#fields.hasErrors('*')} ? has-error">
+					<label class="control-label">Placa</label> <input type="text"
+						class="form-control" th:field="*{placa}" />
+				</div>
+				<div class="form-group  col-sm-2  text-center"
+					th:classappend="${#fields.hasErrors('*')} ? has-error">
+					<label class="control-label">Renavan</label> <input type="text"
+						class="form-control" th:field="*{renavan}" />
+				</div>
+				<div class="form-group  col-sm-2  text-center"
+					th:classappend="${#fields.hasErrors('*')} ? has-error">
+					<label class="control-label">CPF / CNPJ</label> <input type="text"
+						class="form-control" th:field="*{cpfCnpj}" />
+				</div>
+			</div>
+			<div class="row  col-sm-2  col-sm-offset-5">
+				<button type="submit" class="btn btn-primary  col-sm-12">Pesquisar</button>
+			</div>
+		</form>
+
+		<br /> <br />
+		<div class="row" th:unless="${#strings.isEmpty(resultado)}">
+			<table class="table  table-hover  table-bordered">
+				<thead>
+					<tr>
+						<th>Placa</th>
+						<th>Renavan</th>
+						<th>Chassi</th>
+						<th>Ano Fabricação</th>
+						<th>Marca/Modelo</th>
+						<th>Combustivel</th>
+						<th>Especie/Tipo</th>
+						<th>Procedência</th>
+						<th>Fabricante</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:if="${#lists.isEmpty(veiculos)}">
+						<td colspan="9">Não foi encontrado nenhum veículo.</td>
+					</tr>
+					<tr th:each="veiculo : ${veiculos}">
+						<td th:text="${veiculo.placa}">Placa</td>
+						<td th:text="${veiculo.renavan}">Renavan</td>
+						<td th:text="${veiculo.chassi}">Renavan</td>
+						<td th:text="${veiculo.anoFabricacao}">Ano</td>
+						<td th:text="${veiculo.marcaModelo}">Marca</td>
+						<td th:text="${veiculo.combustivel}">Combustivel</td>
+						<td th:text="${veiculo.especieTipo}">Especie</td>
+						<td th:text="${veiculo.procedencia}">Procedência</td>
+						<td th:text="${veiculo.fabricante}">Fabricante</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+
+	<script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+</body>
 </html>
