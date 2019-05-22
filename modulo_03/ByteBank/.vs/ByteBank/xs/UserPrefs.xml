@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{03379B61-3BF4-4345-AFB9-114ED489FE87}|Default">
+  <MonoDevelop.Ide.ItemProperties.ByteBank PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ByteBank/Funcionarios/Diretor.cs">
+    <Files>
+      <File FileName="ByteBank/Program.cs" Line="29" Column="34" />
+      <File FileName="ByteBank/Funcionarios/Funcionario.cs" Line="11" Column="45" />
+      <File FileName="ByteBank/Funcionarios/Diretor.cs" Line="10" Column="51" />
+      <File FileName="ByteBank/GerenciadorFuncionario.cs" Line="19" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ByteBank" expanded="True">
+            <Node name="ByteBank" expanded="True">
+              <Node name="Funcionarios" expanded="True">
+                <Node name="Diretor.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

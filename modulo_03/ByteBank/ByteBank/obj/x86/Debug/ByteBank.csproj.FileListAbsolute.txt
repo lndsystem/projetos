@@ -1,0 +1,6 @@
+/opt/fontes_git/modulo_03/ByteBank/ByteBank/bin/Debug/ByteBank.exe
+/opt/fontes_git/modulo_03/ByteBank/ByteBank/bin/Debug/ByteBank.pdb
+/opt/fontes_git/modulo_03/ByteBank/ByteBank/obj/x86/Debug/ByteBank.csprojAssemblyReference.cache
+/opt/fontes_git/modulo_03/ByteBank/ByteBank/obj/x86/Debug/ByteBank.csproj.CoreCompileInputs.cache
+/opt/fontes_git/modulo_03/ByteBank/ByteBank/obj/x86/Debug/ByteBank.exe
+/opt/fontes_git/modulo_03/ByteBank/ByteBank/obj/x86/Debug/ByteBank.pdb

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+
+<meta charset="utf-8"></meta>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<meta name="description" content=""></meta>
+<meta name="author" content=""></meta>
+<link rel="icon" type="image/x-icon" href="/img/icon.ico" th:href="@{/img/icon.ico}" />
+<style>
+iframe {
+	border: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+}
+</style>
+</head>
+<body>
+
+	<iframe th:each="endereco : ${listEndereco}" th:src="${endereco.url}" style="display: none"></iframe>
+	
+	<script th:src="@{/js/jquery-3.2.0.min.js}"></script>
+	<script th:inline="javascript">
+		//var arrayUrl = [[${listEndereco}]];
+		var urlAtual = 0;
+		function mudarDados() {
+			$.each($('iframe'), function(key, value) {
+				value.style.display = "none";
+			});
+			$('iframe')[urlAtual].style.display = "inline";
+			urlAtual++;
+			if ($('iframe').length == urlAtual) {
+				urlAtual = 0;
+			}
+		}
+
+		mudarDados();
+		setInterval("mudarDados()", 120000);
+	</script>
+</body>
+</html>
